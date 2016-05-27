@@ -16,6 +16,7 @@
 		ED5BC2C11CF885FD00E1A827 /* CWXMPPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5BC2C01CF885FD00E1A827 /* CWXMPPManager.swift */; };
 		ED5BC2C31CF8943900E1A827 /* CWXMPPMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5BC2C21CF8943900E1A827 /* CWXMPPMessage.swift */; };
 		ED5BC2C51CF899D600E1A827 /* CWChatConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5BC2C41CF899D600E1A827 /* CWChatConst.swift */; };
+		ED5BC2C71CF8AA4500E1A827 /* CWChatTabBarContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5BC2C61CF8AA4500E1A827 /* CWChatTabBarContoller.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		ED5BC2C01CF885FD00E1A827 /* CWXMPPManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWXMPPManager.swift; sourceTree = "<group>"; };
 		ED5BC2C21CF8943900E1A827 /* CWXMPPMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWXMPPMessage.swift; sourceTree = "<group>"; };
 		ED5BC2C41CF899D600E1A827 /* CWChatConst.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWChatConst.swift; sourceTree = "<group>"; };
+		ED5BC2C61CF8AA4500E1A827 /* CWChatTabBarContoller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWChatTabBarContoller.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 		ED5BC2B51CF87DD700E1A827 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				ED5BC2C61CF8AA4500E1A827 /* CWChatTabBarContoller.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED5BC2C71CF8AA4500E1A827 /* CWChatTabBarContoller.swift in Sources */,
 				ED5BC2BC1CF87DD700E1A827 /* ViewController.swift in Sources */,
 				ED5BC2C11CF885FD00E1A827 /* CWXMPPManager.swift in Sources */,
 				ED5BC2C31CF8943900E1A827 /* CWXMPPMessage.swift in Sources */,
