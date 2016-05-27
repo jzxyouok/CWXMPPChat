@@ -7,5 +7,8 @@ target 'CWXMPPChat' do
 
 pod 'XMPPFramework'
 
+pod 'SnapKit'
+pod 'SwiftyJSON'
+pod 'Alamofire'
 end
 

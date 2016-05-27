@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C3635E94EDC71303899FF61C /* Pods_CWXMPPChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D888B28CB1B99CE7C0FF3A5 /* Pods_CWXMPPChat.framework */; };
+		B75E76F645D0FB5E81FE1830 /* Pods_CWXMPPChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B39067CBE9F6B9F84053A7 /* Pods_CWXMPPChat.framework */; };
 		ED5BC2B71CF87DD700E1A827 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5BC2AA1CF87DD700E1A827 /* AppDelegate.swift */; };
 		ED5BC2B81CF87DD700E1A827 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED5BC2AB1CF87DD700E1A827 /* Assets.xcassets */; };
 		ED5BC2BA1CF87DD700E1A827 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED5BC2AE1CF87DD700E1A827 /* Main.storyboard */; };
@@ -17,12 +17,17 @@
 		ED5BC2C31CF8943900E1A827 /* CWXMPPMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5BC2C21CF8943900E1A827 /* CWXMPPMessage.swift */; };
 		ED5BC2C51CF899D600E1A827 /* CWChatConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5BC2C41CF899D600E1A827 /* CWChatConst.swift */; };
 		ED5BC2C71CF8AA4500E1A827 /* CWChatTabBarContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5BC2C61CF8AA4500E1A827 /* CWChatTabBarContoller.swift */; };
+		ED5BC2C91CF8AAD000E1A827 /* CWChatNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5BC2C81CF8AAD000E1A827 /* CWChatNavigationController.swift */; };
+		ED5BC2D51CF8AB8900E1A827 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5BC2CC1CF8AB8900E1A827 /* FriendsViewController.swift */; };
+		ED5BC2D61CF8AB8900E1A827 /* FriendsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5BC2CE1CF8AB8900E1A827 /* FriendsHelper.swift */; };
+		ED5BC2D71CF8AB8900E1A827 /* ChatFriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5BC2D01CF8AB8900E1A827 /* ChatFriendCell.swift */; };
+		ED5BC2D91CF8ABEE00E1A827 /* ChatUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5BC2D81CF8ABEE00E1A827 /* ChatUserModel.swift */; };
+		ED5BC2DB1CF8AE4A00E1A827 /* CWChatListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5BC2DA1CF8AE4A00E1A827 /* CWChatListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1D888B28CB1B99CE7C0FF3A5 /* Pods_CWXMPPChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CWXMPPChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		33905B060E2D3BA3F6FA2A1B /* Pods-CWXMPPChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CWXMPPChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-CWXMPPChat/Pods-CWXMPPChat.release.xcconfig"; sourceTree = "<group>"; };
-		8456E8F2EBB6E558D4CE03B3 /* Pods-CWXMPPChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CWXMPPChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CWXMPPChat/Pods-CWXMPPChat.debug.xcconfig"; sourceTree = "<group>"; };
+		1A302019F436D9B4A03C7DC5 /* Pods-CWXMPPChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CWXMPPChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CWXMPPChat/Pods-CWXMPPChat.debug.xcconfig"; sourceTree = "<group>"; };
+		E8EDF417EF9BECC0EBD57685 /* Pods-CWXMPPChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CWXMPPChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-CWXMPPChat/Pods-CWXMPPChat.release.xcconfig"; sourceTree = "<group>"; };
 		ED5BC2941CF87D0D00E1A827 /* CWXMPPChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CWXMPPChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED5BC2AA1CF87DD700E1A827 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED5BC2AB1CF87DD700E1A827 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -34,6 +39,13 @@
 		ED5BC2C21CF8943900E1A827 /* CWXMPPMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWXMPPMessage.swift; sourceTree = "<group>"; };
 		ED5BC2C41CF899D600E1A827 /* CWChatConst.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWChatConst.swift; sourceTree = "<group>"; };
 		ED5BC2C61CF8AA4500E1A827 /* CWChatTabBarContoller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWChatTabBarContoller.swift; sourceTree = "<group>"; };
+		ED5BC2C81CF8AAD000E1A827 /* CWChatNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWChatNavigationController.swift; sourceTree = "<group>"; };
+		ED5BC2CC1CF8AB8900E1A827 /* FriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
+		ED5BC2CE1CF8AB8900E1A827 /* FriendsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsHelper.swift; sourceTree = "<group>"; };
+		ED5BC2D01CF8AB8900E1A827 /* ChatFriendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatFriendCell.swift; sourceTree = "<group>"; };
+		ED5BC2D81CF8ABEE00E1A827 /* ChatUserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatUserModel.swift; sourceTree = "<group>"; };
+		ED5BC2DA1CF8AE4A00E1A827 /* CWChatListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWChatListViewController.swift; sourceTree = "<group>"; };
+		F5B39067CBE9F6B9F84053A7 /* Pods_CWXMPPChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CWXMPPChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,18 +53,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C3635E94EDC71303899FF61C /* Pods_CWXMPPChat.framework in Frameworks */,
+				B75E76F645D0FB5E81FE1830 /* Pods_CWXMPPChat.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		23C629BC5D092C428312E159 /* Pods */ = {
+		5F2B92435158C2D3CD81F2F2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8456E8F2EBB6E558D4CE03B3 /* Pods-CWXMPPChat.debug.xcconfig */,
-				33905B060E2D3BA3F6FA2A1B /* Pods-CWXMPPChat.release.xcconfig */,
+				F5B39067CBE9F6B9F84053A7 /* Pods_CWXMPPChat.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9EC2943A209A358004C2B975 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1A302019F436D9B4A03C7DC5 /* Pods-CWXMPPChat.debug.xcconfig */,
+				E8EDF417EF9BECC0EBD57685 /* Pods-CWXMPPChat.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -62,8 +82,8 @@
 			children = (
 				ED5BC2961CF87D0D00E1A827 /* CWXMPPChat */,
 				ED5BC2951CF87D0D00E1A827 /* Products */,
-				23C629BC5D092C428312E159 /* Pods */,
-				FF2115B96E200F06924495CD /* Frameworks */,
+				9EC2943A209A358004C2B975 /* Pods */,
+				5F2B92435158C2D3CD81F2F2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -119,6 +139,8 @@
 		ED5BC2B41CF87DD700E1A827 /* MainClass */ = {
 			isa = PBXGroup;
 			children = (
+				ED5BC2CA1CF8AB8900E1A827 /* Friends */,
+				ED5BC2D11CF8AB8900E1A827 /* Message */,
 				ED5BC2B51CF87DD700E1A827 /* Base */,
 				ED5BC2B61CF87DD700E1A827 /* RegisterLogin */,
 			);
@@ -129,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				ED5BC2C61CF8AA4500E1A827 /* CWChatTabBarContoller.swift */,
+				ED5BC2C81CF8AAD000E1A827 /* CWChatNavigationController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -140,12 +163,71 @@
 			path = RegisterLogin;
 			sourceTree = "<group>";
 		};
-		FF2115B96E200F06924495CD /* Frameworks */ = {
+		ED5BC2CA1CF8AB8900E1A827 /* Friends */ = {
 			isa = PBXGroup;
 			children = (
-				1D888B28CB1B99CE7C0FF3A5 /* Pods_CWXMPPChat.framework */,
+				ED5BC2CB1CF8AB8900E1A827 /* Controller */,
+				ED5BC2CD1CF8AB8900E1A827 /* Model */,
+				ED5BC2CF1CF8AB8900E1A827 /* View */,
 			);
-			name = Frameworks;
+			path = Friends;
+			sourceTree = "<group>";
+		};
+		ED5BC2CB1CF8AB8900E1A827 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				ED5BC2CC1CF8AB8900E1A827 /* FriendsViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		ED5BC2CD1CF8AB8900E1A827 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				ED5BC2D81CF8ABEE00E1A827 /* ChatUserModel.swift */,
+				ED5BC2CE1CF8AB8900E1A827 /* FriendsHelper.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		ED5BC2CF1CF8AB8900E1A827 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				ED5BC2D01CF8AB8900E1A827 /* ChatFriendCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		ED5BC2D11CF8AB8900E1A827 /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				ED5BC2D21CF8AB8900E1A827 /* Controller */,
+				ED5BC2D31CF8AB8900E1A827 /* Model */,
+				ED5BC2D41CF8AB8900E1A827 /* View */,
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
+		ED5BC2D21CF8AB8900E1A827 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				ED5BC2DA1CF8AE4A00E1A827 /* CWChatListViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		ED5BC2D31CF8AB8900E1A827 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		ED5BC2D41CF8AB8900E1A827 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,12 +237,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ED5BC2A61CF87D0D00E1A827 /* Build configuration list for PBXNativeTarget "CWXMPPChat" */;
 			buildPhases = (
-				26EB0FAF3538E029D7F515AA /* Check Pods Manifest.lock */,
+				406E6E7B4EA30EDDF1ECF5E5 /* 📦 Check Pods Manifest.lock */,
 				ED5BC2901CF87D0D00E1A827 /* Sources */,
 				ED5BC2911CF87D0D00E1A827 /* Frameworks */,
 				ED5BC2921CF87D0D00E1A827 /* Resources */,
-				E06B66E61D95397D28DDF732 /* Embed Pods Frameworks */,
-				FFAB4FDF504EB037F880FC69 /* Copy Pods Resources */,
+				998E60A5A56C272A63D0E043 /* 📦 Embed Pods Frameworks */,
+				F01D47EA96351BCE3C788CAB /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -219,14 +301,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		26EB0FAF3538E029D7F515AA /* Check Pods Manifest.lock */ = {
+		406E6E7B4EA30EDDF1ECF5E5 /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -234,14 +316,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		E06B66E61D95397D28DDF732 /* Embed Pods Frameworks */ = {
+		998E60A5A56C272A63D0E043 /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "📦 Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -249,14 +331,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CWXMPPChat/Pods-CWXMPPChat-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		FFAB4FDF504EB037F880FC69 /* Copy Pods Resources */ = {
+		F01D47EA96351BCE3C788CAB /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -271,11 +353,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED5BC2D51CF8AB8900E1A827 /* FriendsViewController.swift in Sources */,
 				ED5BC2C71CF8AA4500E1A827 /* CWChatTabBarContoller.swift in Sources */,
 				ED5BC2BC1CF87DD700E1A827 /* ViewController.swift in Sources */,
 				ED5BC2C11CF885FD00E1A827 /* CWXMPPManager.swift in Sources */,
+				ED5BC2C91CF8AAD000E1A827 /* CWChatNavigationController.swift in Sources */,
 				ED5BC2C31CF8943900E1A827 /* CWXMPPMessage.swift in Sources */,
+				ED5BC2D61CF8AB8900E1A827 /* FriendsHelper.swift in Sources */,
+				ED5BC2D71CF8AB8900E1A827 /* ChatFriendCell.swift in Sources */,
+				ED5BC2D91CF8ABEE00E1A827 /* ChatUserModel.swift in Sources */,
 				ED5BC2B71CF87DD700E1A827 /* AppDelegate.swift in Sources */,
+				ED5BC2DB1CF8AE4A00E1A827 /* CWChatListViewController.swift in Sources */,
 				ED5BC2C51CF899D600E1A827 /* CWChatConst.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -379,10 +467,11 @@
 		};
 		ED5BC2A71CF87D0D00E1A827 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8456E8F2EBB6E558D4CE03B3 /* Pods-CWXMPPChat.debug.xcconfig */;
+			baseConfigurationReference = 1A302019F436D9B4A03C7DC5 /* Pods-CWXMPPChat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "$(SRCROOT)/CWXMPPChat/Application/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cwcoder.CWXMPPChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -391,10 +480,11 @@
 		};
 		ED5BC2A81CF87D0D00E1A827 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 33905B060E2D3BA3F6FA2A1B /* Pods-CWXMPPChat.release.xcconfig */;
+			baseConfigurationReference = E8EDF417EF9BECC0EBD57685 /* Pods-CWXMPPChat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "$(SRCROOT)/CWXMPPChat/Application/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cwcoder.CWXMPPChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -6,12 +6,18 @@
 //  Copyright © 2016年 chenwei. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 public enum CWUserStatus: String {
     case None = "none"
     case Online = "available"
     case Offline = "unavailable"
     
-    
 }
+
+
+let Screen_Size = UIScreen.mainScreen().bounds.size
+let Screen_Width = UIScreen.mainScreen().bounds.size.width
+let Screen_Height = UIScreen.mainScreen().bounds.size.height
+
+let Screen_NavigationHeight:CGFloat = 64
