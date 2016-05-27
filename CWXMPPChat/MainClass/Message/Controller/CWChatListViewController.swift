@@ -15,6 +15,8 @@ class CWChatListViewController: UIViewController {
 
         self.title = "消息"
 
+        let manager = CWXMPPManager.shareInstance()
+        manager.connectProcess()
         // Do any additional setup after loading the view.
     }
 

@@ -53,7 +53,7 @@ class CWXMPPManager: NSObject {
         }
         
         let xmppAccount = "tom@chenweiim.com"
-        let hostName = "localhost"
+        let hostName = "192.168.0.118"
         let hostPort:UInt16 = 5222
         
         let timeoutInterval:NSTimeInterval = 10

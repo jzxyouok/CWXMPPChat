@@ -11,7 +11,6 @@
 		ED5BC2B71CF87DD700E1A827 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5BC2AA1CF87DD700E1A827 /* AppDelegate.swift */; };
 		ED5BC2B81CF87DD700E1A827 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED5BC2AB1CF87DD700E1A827 /* Assets.xcassets */; };
 		ED5BC2BA1CF87DD700E1A827 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED5BC2AE1CF87DD700E1A827 /* Main.storyboard */; };
-		ED5BC2BC1CF87DD700E1A827 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5BC2B11CF87DD700E1A827 /* ViewController.swift */; };
 		ED5BC2BE1CF87DF900E1A827 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED5BC2BD1CF87DF900E1A827 /* LaunchScreen.storyboard */; };
 		ED5BC2C11CF885FD00E1A827 /* CWXMPPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5BC2C01CF885FD00E1A827 /* CWXMPPManager.swift */; };
 		ED5BC2C31CF8943900E1A827 /* CWXMPPMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5BC2C21CF8943900E1A827 /* CWXMPPMessage.swift */; };
@@ -33,7 +32,6 @@
 		ED5BC2AB1CF87DD700E1A827 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ED5BC2AF1CF87DD700E1A827 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ED5BC2B01CF87DD700E1A827 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ED5BC2B11CF87DD700E1A827 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		ED5BC2BD1CF87DF900E1A827 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ED5BC2C01CF885FD00E1A827 /* CWXMPPManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWXMPPManager.swift; sourceTree = "<group>"; };
 		ED5BC2C21CF8943900E1A827 /* CWXMPPMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWXMPPMessage.swift; sourceTree = "<group>"; };
@@ -114,7 +112,6 @@
 				ED5BC2BD1CF87DF900E1A827 /* LaunchScreen.storyboard */,
 				ED5BC2AE1CF87DD700E1A827 /* Main.storyboard */,
 				ED5BC2B01CF87DD700E1A827 /* Info.plist */,
-				ED5BC2B11CF87DD700E1A827 /* ViewController.swift */,
 				ED5BC2C01CF885FD00E1A827 /* CWXMPPManager.swift */,
 				ED5BC2C21CF8943900E1A827 /* CWXMPPMessage.swift */,
 				ED5BC2C41CF899D600E1A827 /* CWChatConst.swift */,
@@ -355,7 +352,6 @@
 			files = (
 				ED5BC2D51CF8AB8900E1A827 /* FriendsViewController.swift in Sources */,
 				ED5BC2C71CF8AA4500E1A827 /* CWChatTabBarContoller.swift in Sources */,
-				ED5BC2BC1CF87DD700E1A827 /* ViewController.swift in Sources */,
 				ED5BC2C11CF885FD00E1A827 /* CWXMPPManager.swift in Sources */,
 				ED5BC2C91CF8AAD000E1A827 /* CWChatNavigationController.swift in Sources */,
 				ED5BC2C31CF8943900E1A827 /* CWXMPPMessage.swift in Sources */,
@@ -470,11 +466,13 @@
 			baseConfigurationReference = 1A302019F436D9B4A03C7DC5 /* Pods-CWXMPPChat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: wei chen (4CJGE4SRV4)";
 				INFOPLIST_FILE = "$(SRCROOT)/CWXMPPChat/Application/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cwcoder.CWXMPPChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "0c752fed-fa22-4068-8291-db1f50c2de4b";
 			};
 			name = Debug;
 		};
@@ -488,6 +486,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cwcoder.CWXMPPChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "0c752fed-fa22-4068-8291-db1f50c2de4b";
 			};
 			name = Release;
 		};
