@@ -53,7 +53,7 @@ class CWXMPPManager: NSObject {
         }
         
         let xmppAccount = "tom@chenweiim.com"
-        let hostName = "192.168.0.118"
+        let hostName = "192.168.0.121"
         let hostPort:UInt16 = 5222
         
         let timeoutInterval:NSTimeInterval = 10
@@ -82,6 +82,7 @@ class CWXMPPManager: NSObject {
 
 }
 
+// MARK: - XMPPStreamDelegate
 extension CWXMPPManager: XMPPStreamDelegate {
     
     ///
@@ -90,7 +91,7 @@ extension CWXMPPManager: XMPPStreamDelegate {
 
     }
     
-    ///
+    ///已经连接，就输入密码
     func xmppStreamDidConnect(sender: XMPPStream!) {
         print("xmppStream-xmppStreamDidConnect")
 
