@@ -10,14 +10,14 @@ import UIKit
 
 ///MARK: 会话记录
 ///会话提示类型
-public enum ChatRecordClueType: Int {
+public enum CWConversationClueType: Int {
     case None
     case Point
     case PointWithNumber
 }
 
 ///会话的类型
-public enum ChatRecordType: Int {
+public enum CWConversationType: Int {
     case Personal
     case Group
 }
@@ -25,13 +25,13 @@ public enum ChatRecordType: Int {
 
 //MARK: 消息
 ///消息聊天类型
-public enum ChatMessagePartnerType: Int {
-    case User
+public enum CWMessagePartnerType: Int {
+    case Personal
     case Group
 }
 
 ///消息所属类型
-public enum ChatMessageOwnerType : Int {
+public enum CWMessageOwnerType : Int {
     case Unknow  //未知
     case System   //系统消息
     case Myself   //自己发送的
@@ -39,7 +39,7 @@ public enum ChatMessageOwnerType : Int {
 }
 
 ///消息类型
-public enum ChatMessageType : Int {
+public enum CWMessageType : Int {
     case Unknow             //未知
     case Text               //文字
     case Image              //图片
@@ -67,7 +67,7 @@ public enum ChatMessageType : Int {
 }
 
 ///消息发送的状态
-public enum ChatMessageSendState : Int {
+public enum CWMessageSendState : Int {
     case Sending            //消息发送中
     case Fail              //消息发送失败
     case Success           //消息发送成功
@@ -82,13 +82,13 @@ public enum ChatMessageSendState : Int {
 }
 
 ///消息读取的状态
-public enum ChatMessageReadState : Int {
+public enum CWMessageReadState : Int {
     case Readed               //消息已读
     case Unread               //消息未读
 }
 
 ///消息播放状态(声音和视频)
-public enum ChatMessagePlayState : Int {
+public enum CWMessagePlayState : Int {
     case None    = 0             //无播放（自己发送的默认是无播放）
     case UnPlay  = -1              //未播放 (接收的语言消息默认是未播放)
     case Playing = 1              //播放中
@@ -112,7 +112,7 @@ public enum ChatMessagePlayState : Int {
  - Success: 上传成功
  - Fail:    上传失败
  */
-public enum ChatMessageUploadState: Int {
+public enum CWMessageUploadState: Int {
     case None    = -1
     case Loading = 0
     case Success = 1
@@ -125,7 +125,7 @@ let  MAX_SHOWTIME_MESSAGE_SECOND:Double =     30
 
 //MARK: 消息的协议
 ///消息的协议
-protocol ChatMessageProtocol: NSObjectProtocol {
+protocol CWMessageProtocol: NSObjectProtocol {
     
     var messageID:String { get }            //消息ID
     var userID:String?  { get set }         //发送者ID
@@ -138,14 +138,14 @@ protocol ChatMessageProtocol: NSObjectProtocol {
 
     var messageSendDate:NSDate {get set}       //消息发送时间
 
-    var partnerType:ChatMessagePartnerType {get set}     //消息接收者
-    var messageOwnerType:ChatMessageOwnerType {get set}  //消息所属类型
-    var messageType:ChatMessageType {get set}            //消息类型
+    var partnerType:CWMessagePartnerType {get set}     //消息接收者
+    var messageOwnerType:CWMessageOwnerType {get set}  //消息所属类型
+    var messageType:CWMessageType {get set}            //消息类型
     
-    var messageSendState:ChatMessageSendState {get set}  //消息发送状态
-    var messageReadState:ChatMessageReadState {get set}  //消息读取状态
-    var messagePlayState:ChatMessagePlayState {get set}  //消息播放状态
-    var messageUploadState:ChatMessageUploadState {get set} //消息上传状态
+    var messageSendState:CWMessageSendState {get set}  //消息发送状态
+    var messageReadState:CWMessageReadState {get set}  //消息读取状态
+    var messagePlayState:CWMessagePlayState {get set}  //消息播放状态
+    var messageUploadState:CWMessageUploadState {get set} //消息上传状态
     //
     //
     var conversationContent:String {get}

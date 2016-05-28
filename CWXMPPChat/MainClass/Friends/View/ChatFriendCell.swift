@@ -15,7 +15,12 @@ let  FRIENDS_SPACE_Y:CGFloat     =    9.0
 
 class ChatFriendCell: UITableViewCell {
     
-    var user:CWChatUserModel?
+    ///用户model
+    var userModel:CWChatUserModel? {
+        didSet {
+            self.setupUI()
+        }
+    }
     
     lazy var avatarImageView:UIImageView = {
         let avatarImageView = UIImageView()
@@ -60,16 +65,21 @@ class ChatFriendCell: UITableViewCell {
         }
     }
     
-    func setUserModel(user:CWChatUserModel) {
-        self.user = user
-        if (user.avatarPath != nil) {
-            self.avatarImageView.image = UIImage(named: user.avatarPath!)
-        } else {
-            let url = "http://o7ve5wypa.bkt.clouddn.com/"+user.userId
-            self.avatarImageView.af_setImageWithURL(NSURL(string: url)!)
+    ///设置UI
+    func setupUI() {
+        
+        guard let userModel = userModel else {
+            return
         }
-        self.usernameLabel.text = user.nikeName;
+        
+        if (userModel.avatarPath != nil) {
+            self.avatarImageView.image = UIImage(named: userModel.avatarPath!)
+        } else {
+            self.avatarImageView.af_setImageWithURL(NSURL(string: userModel.avatarURL)!)
+        }
+        self.usernameLabel.text = userModel.nikeName;
     }
+
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

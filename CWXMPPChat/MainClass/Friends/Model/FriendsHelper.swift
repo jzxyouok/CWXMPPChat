@@ -30,9 +30,9 @@ class FriendsHelper: NSObject {
     }
     
     
-    class func findFriend(userid:String?) -> CWChatUserModel? {
+    class func findFriend(userId:String?) -> CWChatUserModel? {
         for user in FriendsHelper.shareFriendsHelper.userList {
-            if userid == user.userId {
+            if userId == user.userId {
                 return user
             }
         }

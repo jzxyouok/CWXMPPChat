@@ -19,7 +19,10 @@ class CWChatUserModel: NSObject {
     //备注名
     var remarkName: String?
     //头像URL
-    var avatarURL: String?
+    var avatarURL: String {
+        let avatarURL = "http://o7ve5wypa.bkt.clouddn.com/"+self.userId
+        return avatarURL
+    }
     //头像路径
     var avatarPath: String?
     
