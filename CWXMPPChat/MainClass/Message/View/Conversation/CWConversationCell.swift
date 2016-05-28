@@ -12,7 +12,7 @@ import SnapKit
 ///会话cell
 class CWConversationCell: UITableViewCell {
 
-    //MARK: 会话对象
+    //MARK: 属性
     var conversationModel: CWConversationModel? {
         didSet {
             self.setupUI()
@@ -71,7 +71,7 @@ class CWConversationCell: UITableViewCell {
     }
 
     
-    //MARK:
+    //MARK:UI
     ///计算frame
     func setupViewFrame() {
         
@@ -109,6 +109,7 @@ class CWConversationCell: UITableViewCell {
         }
     }
     
+    //MARK:最核心：设置数据
     ///设置数据
     func setupUI()  {
         
@@ -117,14 +118,12 @@ class CWConversationCell: UITableViewCell {
             return
         }
         
-        let userModel = FriendsHelper.findFriend("")
+        let userModel = FriendsHelper.findFriend(conversationModel.partnerID)
         
-        if let path = userModel?.avatarPath {
-            self.headerImageView.image = UIImage(named: path)
-        }
-        
-        if let userName = userModel?.userName {
-            self.usernameLabel.text = userName
+        if let userModel = userModel {
+            
+            self.headerImageView.af_setImageWithURL(NSURL(string: userModel.avatarURL)!)
+            self.usernameLabel.text = userModel.nikeName
         }
         
         if let date = conversationModel.conversationDate {
@@ -133,11 +132,11 @@ class CWConversationCell: UITableViewCell {
         
         self.detailInfoLabel.text = conversationModel.content
         
-        
         self.badgeView.badgeValue = conversationModel.unreadCount
         self.badgeView.sizeToFit()
     }
 
+    //MARK:其他
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -146,7 +145,6 @@ class CWConversationCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-    
     
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

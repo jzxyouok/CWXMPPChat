@@ -59,7 +59,7 @@ extension CWFriendsViewController:UITableViewDataSource {
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell") as! ChatFriendCell
-        cell.setUserModel(userList[indexPath.row])
+        cell.userModel = userList[indexPath.row]
         return cell
     }
 

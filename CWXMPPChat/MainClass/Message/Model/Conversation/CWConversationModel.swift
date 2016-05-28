@@ -15,8 +15,9 @@ import UIKit
  */
 class CWConversationModel: NSObject {
    
-    //
-    
+    ///id
+    ///TODO: 待修改
+    var partnerID: String!
     ///时间
     var conversationDate: NSDate?
     ///会话类型
@@ -27,9 +28,7 @@ class CWConversationModel: NSObject {
     var content:String?
     ///是否读取
     var isRead: Bool {
-        get {
-            return self.unreadCount == 0
-        }
+        return self.unreadCount == 0
     }
     
     override init() {

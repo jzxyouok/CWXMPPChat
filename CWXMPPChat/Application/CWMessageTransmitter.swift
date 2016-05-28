@@ -53,7 +53,7 @@ class CWMessageTransmitter: XMPPModule {
         let message = DDXMLElement.elementWithName("message") as! DDXMLElement
         message.addAttributeWithName("xmlns", stringValue: "jabber:client")
 
-        let from = "tom"+"@chenweiim.com";
+        let from = "chenwei"+"@chenweiim.com";
         message.addAttributeWithName("from", stringValue: from)
         message.addAttributeWithName("to", stringValue: to)
         message.addAttributeWithName("type", stringValue: "chat")

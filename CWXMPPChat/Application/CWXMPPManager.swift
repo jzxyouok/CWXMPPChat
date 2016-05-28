@@ -166,8 +166,6 @@ extension CWXMPPManager: XMPPStreamDelegate {
     ///收到状态信息
     func xmppStream(sender: XMPPStream!, didReceivePresence presence: XMPPPresence!) {
         
-        print("状态信息"+presence.description)
-        
         let myUser = sender.myJID.user
         
         //好友的用户名

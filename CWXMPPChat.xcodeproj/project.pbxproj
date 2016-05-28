@@ -37,6 +37,16 @@
 		EDF48A821CF98F2000B50DCE /* CWBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF48A811CF98F2000B50DCE /* CWBadgeView.swift */; };
 		EDF48A841CF98FAB00B50DCE /* CWConversationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF48A831CF98FAB00B50DCE /* CWConversationModel.swift */; };
 		EDF48A861CF991AE00B50DCE /* CWMessageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF48A851CF991AE00B50DCE /* CWMessageProtocol.swift */; };
+		EDF48A881CF9C84800B50DCE /* CWBaseMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF48A871CF9C84800B50DCE /* CWBaseMessageTableViewCell.swift */; };
+		EDF48A8C1CF9D55C00B50DCE /* UIImage+CWChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF48A8B1CF9D55C00B50DCE /* UIImage+CWChat.swift */; };
+		EDF48A961CF9D85900B50DCE /* CWDiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF48A951CF9D85900B50DCE /* CWDiscoverViewController.swift */; };
+		EDF48A981CF9D88000B50DCE /* CWMineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF48A971CF9D88000B50DCE /* CWMineViewController.swift */; };
+		EDF48A9B1CF9D8D300B50DCE /* CWMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF48A9A1CF9D8D300B50DCE /* CWMenuViewController.swift */; };
+		EDF48A9D1CF9D8F600B50DCE /* CWMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF48A9C1CF9D8F600B50DCE /* CWMenuCell.swift */; };
+		EDF48A9F1CF9E5DB00B50DCE /* CWMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF48A9E1CF9E5DB00B50DCE /* CWMenuItem.swift */; };
+		EDF48AA11CF9EE4900B50DCE /* CWDiscoverHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF48AA01CF9EE4900B50DCE /* CWDiscoverHelper.swift */; };
+		EDF48AA31CF9F95F00B50DCE /* CWMineHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF48AA21CF9F95F00B50DCE /* CWMineHelper.swift */; };
+		EDF48AA51CF9FC1C00B50DCE /* CWMineUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF48AA41CF9FC1C00B50DCE /* CWMineUserCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +83,16 @@
 		EDF48A811CF98F2000B50DCE /* CWBadgeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWBadgeView.swift; sourceTree = "<group>"; };
 		EDF48A831CF98FAB00B50DCE /* CWConversationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWConversationModel.swift; sourceTree = "<group>"; };
 		EDF48A851CF991AE00B50DCE /* CWMessageProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWMessageProtocol.swift; sourceTree = "<group>"; };
+		EDF48A871CF9C84800B50DCE /* CWBaseMessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWBaseMessageTableViewCell.swift; sourceTree = "<group>"; };
+		EDF48A8B1CF9D55C00B50DCE /* UIImage+CWChat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+CWChat.swift"; sourceTree = "<group>"; };
+		EDF48A951CF9D85900B50DCE /* CWDiscoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWDiscoverViewController.swift; sourceTree = "<group>"; };
+		EDF48A971CF9D88000B50DCE /* CWMineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWMineViewController.swift; sourceTree = "<group>"; };
+		EDF48A9A1CF9D8D300B50DCE /* CWMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWMenuViewController.swift; sourceTree = "<group>"; };
+		EDF48A9C1CF9D8F600B50DCE /* CWMenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWMenuCell.swift; sourceTree = "<group>"; };
+		EDF48A9E1CF9E5DB00B50DCE /* CWMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWMenuItem.swift; sourceTree = "<group>"; };
+		EDF48AA01CF9EE4900B50DCE /* CWDiscoverHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWDiscoverHelper.swift; sourceTree = "<group>"; };
+		EDF48AA21CF9F95F00B50DCE /* CWMineHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWMineHelper.swift; sourceTree = "<group>"; };
+		EDF48AA41CF9FC1C00B50DCE /* CWMineUserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWMineUserCell.swift; sourceTree = "<group>"; };
 		F5B39067CBE9F6B9F84053A7 /* Pods_CWXMPPChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CWXMPPChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -130,6 +150,8 @@
 				ED5BC2B21CF87DD700E1A827 /* Bussiness */,
 				ED5BC2B31CF87DD700E1A827 /* Expand */,
 				ED5BC2A91CF87DD700E1A827 /* Application */,
+				EDF48A891CF9D52600B50DCE /* General */,
+				EDF48A8A1CF9D52600B50DCE /* Resources */,
 			);
 			path = CWXMPPChat;
 			sourceTree = "<group>";
@@ -171,10 +193,12 @@
 		ED5BC2B41CF87DD700E1A827 /* MainClass */ = {
 			isa = PBXGroup;
 			children = (
-				ED5BC2D11CF8AB8900E1A827 /* Message */,
-				ED5BC2CA1CF8AB8900E1A827 /* Friends */,
 				ED5BC2B51CF87DD700E1A827 /* Base */,
 				ED5BC2B61CF87DD700E1A827 /* RegisterLogin */,
+				ED5BC2D11CF8AB8900E1A827 /* Message */,
+				ED5BC2CA1CF8AB8900E1A827 /* Friends */,
+				EDF48A8D1CF9D63600B50DCE /* Discover */,
+				EDF48A911CF9D63600B50DCE /* Me */,
 			);
 			path = MainClass;
 			sourceTree = "<group>";
@@ -182,6 +206,7 @@
 		ED5BC2B51CF87DD700E1A827 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				EDF48A991CF9D8BE00B50DCE /* CWMenu */,
 				ED5BC2C61CF8AA4500E1A827 /* CWChatTabBarContoller.swift */,
 				ED5BC2C81CF8AAD000E1A827 /* CWChatNavigationController.swift */,
 			);
@@ -316,6 +341,7 @@
 		EDF48A781CF98C8000B50DCE /* Message */ = {
 			isa = PBXGroup;
 			children = (
+				EDF48A871CF9C84800B50DCE /* CWBaseMessageTableViewCell.swift */,
 			);
 			path = Message;
 			sourceTree = "<group>";
@@ -334,6 +360,98 @@
 				EDF48A7F1CF98EDB00B50DCE /* ChatTimeTool.swift */,
 			);
 			path = Tool;
+			sourceTree = "<group>";
+		};
+		EDF48A891CF9D52600B50DCE /* General */ = {
+			isa = PBXGroup;
+			children = (
+				EDF48A8B1CF9D55C00B50DCE /* UIImage+CWChat.swift */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		EDF48A8A1CF9D52600B50DCE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		EDF48A8D1CF9D63600B50DCE /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+				EDF48A8E1CF9D63600B50DCE /* Controller */,
+				EDF48A8F1CF9D63600B50DCE /* Model */,
+				EDF48A901CF9D63600B50DCE /* View */,
+			);
+			path = Discover;
+			sourceTree = "<group>";
+		};
+		EDF48A8E1CF9D63600B50DCE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				EDF48A951CF9D85900B50DCE /* CWDiscoverViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		EDF48A8F1CF9D63600B50DCE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EDF48AA01CF9EE4900B50DCE /* CWDiscoverHelper.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EDF48A901CF9D63600B50DCE /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EDF48A911CF9D63600B50DCE /* Me */ = {
+			isa = PBXGroup;
+			children = (
+				EDF48A921CF9D63600B50DCE /* Controller */,
+				EDF48A931CF9D63600B50DCE /* Model */,
+				EDF48A941CF9D63600B50DCE /* View */,
+			);
+			path = Me;
+			sourceTree = "<group>";
+		};
+		EDF48A921CF9D63600B50DCE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				EDF48A971CF9D88000B50DCE /* CWMineViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		EDF48A931CF9D63600B50DCE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EDF48AA21CF9F95F00B50DCE /* CWMineHelper.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EDF48A941CF9D63600B50DCE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EDF48AA41CF9FC1C00B50DCE /* CWMineUserCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EDF48A991CF9D8BE00B50DCE /* CWMenu */ = {
+			isa = PBXGroup;
+			children = (
+				EDF48A9A1CF9D8D300B50DCE /* CWMenuViewController.swift */,
+				EDF48A9C1CF9D8F600B50DCE /* CWMenuCell.swift */,
+				EDF48A9E1CF9E5DB00B50DCE /* CWMenuItem.swift */,
+			);
+			path = CWMenu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -462,11 +580,14 @@
 				ED93E7981CF91EDE0038D7CF /* CWMessageTransmitter.swift in Sources */,
 				ED93E7A11CF9215B0038D7CF /* CWMessageDispatchQueue.swift in Sources */,
 				EDF48A821CF98F2000B50DCE /* CWBadgeView.swift in Sources */,
+				EDF48A981CF9D88000B50DCE /* CWMineViewController.swift in Sources */,
 				EDF48A7D1CF98E3700B50DCE /* CWConversationUIConstant.swift in Sources */,
 				EDF48A701CF93DE500B50DCE /* NSString+Extensions.swift in Sources */,
+				EDF48A8C1CF9D55C00B50DCE /* UIImage+CWChat.swift in Sources */,
 				ED5BC2D51CF8AB8900E1A827 /* CWFriendsViewController.swift in Sources */,
 				EDF48A741CF9895E00B50DCE /* UIColor+Extensions.swift in Sources */,
 				ED93E7A01CF9215B0038D7CF /* CWMessageDispatchOperation.swift in Sources */,
+				EDF48A881CF9C84800B50DCE /* CWBaseMessageTableViewCell.swift in Sources */,
 				ED93E7A31CF9216F0038D7CF /* CWTextMessageDispatchOperation.swift in Sources */,
 				ED5BC2C71CF8AA4500E1A827 /* CWChatTabBarContoller.swift in Sources */,
 				EDF48A841CF98FAB00B50DCE /* CWConversationModel.swift in Sources */,
@@ -474,14 +595,21 @@
 				ED5BC2C11CF885FD00E1A827 /* CWXMPPManager.swift in Sources */,
 				EDF48A861CF991AE00B50DCE /* CWMessageProtocol.swift in Sources */,
 				ED5BC2C91CF8AAD000E1A827 /* CWChatNavigationController.swift in Sources */,
+				EDF48AA11CF9EE4900B50DCE /* CWDiscoverHelper.swift in Sources */,
 				ED5BC2C31CF8943900E1A827 /* CWXMPPMessage.swift in Sources */,
+				EDF48A961CF9D85900B50DCE /* CWDiscoverViewController.swift in Sources */,
+				EDF48AA51CF9FC1C00B50DCE /* CWMineUserCell.swift in Sources */,
 				ED93E7A51CF9217D0038D7CF /* CWImageMessageDispatchOperation.swift in Sources */,
+				EDF48A9B1CF9D8D300B50DCE /* CWMenuViewController.swift in Sources */,
 				ED5BC2D61CF8AB8900E1A827 /* FriendsHelper.swift in Sources */,
+				EDF48A9F1CF9E5DB00B50DCE /* CWMenuItem.swift in Sources */,
 				ED5BC2D71CF8AB8900E1A827 /* ChatFriendCell.swift in Sources */,
 				ED5BC2D91CF8ABEE00E1A827 /* CWChatUserModel.swift in Sources */,
 				EDF48A721CF9829800B50DCE /* CWChatViewController.swift in Sources */,
+				EDF48A9D1CF9D8F600B50DCE /* CWMenuCell.swift in Sources */,
 				EDF48A801CF98EDB00B50DCE /* ChatTimeTool.swift in Sources */,
 				ED93E7951CF91E8B0038D7CF /* CWXMPPProtocol.swift in Sources */,
+				EDF48AA31CF9F95F00B50DCE /* CWMineHelper.swift in Sources */,
 				ED5BC2B71CF87DD700E1A827 /* AppDelegate.swift in Sources */,
 				ED5BC2DB1CF8AE4A00E1A827 /* CWConversationsViewController.swift in Sources */,
 				ED5BC2C51CF899D600E1A827 /* CWChatConst.swift in Sources */,

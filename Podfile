@@ -13,5 +13,11 @@ pod 'Alamofire'
 pod 'AlamofireImage'
 
 
+#log日志
+pod 'XCGLogger'
+
+#model转换
+pod 'ObjectMapper'
+
 end
 

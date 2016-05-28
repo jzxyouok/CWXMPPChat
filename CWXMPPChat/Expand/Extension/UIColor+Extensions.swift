@@ -76,8 +76,19 @@ extension UIColor {
 
 extension UIColor {
     
+
     class func chatSystemColor() -> UIColor {
         return UIColor(hexString: "#09BB07")
+    }
+
+    //tableView背景色
+    class func tableViewBackgroundColorl() -> UIColor {
+        return UIColor(hexString: "#EFEFF4")
+    }
+    
+    //tableView分割线颜色
+    class func tableViewCellLineColor() -> UIColor {
+        return UIColor(white: 0.5, alpha: 0.3)
     }
     
     class func redTipColor() -> UIColor {
