@@ -63,6 +63,7 @@ class CWMineUserCell: UITableViewCell {
         avatarImageView.snp_makeConstraints { (make) in
             make.left.equalTo(MINE_SPACE_X)
             make.top.equalTo(MINE_SPACE_Y)
+            make.width.equalTo(self.avatarImageView.snp_height)
             make.centerY.equalTo(self.contentView)
         }
         

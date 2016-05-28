@@ -17,6 +17,7 @@ class CWDiscoverViewController: CWMenuViewController {
         
         let discoverHelper = CWDiscoverHelper()
         self.dataSource = discoverHelper.discoverMenuData
+        
         // Do any additional setup after loading the view.
     }
     

@@ -47,6 +47,7 @@
 		EDF48AA11CF9EE4900B50DCE /* CWDiscoverHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF48AA01CF9EE4900B50DCE /* CWDiscoverHelper.swift */; };
 		EDF48AA31CF9F95F00B50DCE /* CWMineHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF48AA21CF9F95F00B50DCE /* CWMineHelper.swift */; };
 		EDF48AA51CF9FC1C00B50DCE /* CWMineUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF48AA41CF9FC1C00B50DCE /* CWMineUserCell.swift */; };
+		EDF48AA71CFA024A00B50DCE /* CWLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF48AA61CFA024A00B50DCE /* CWLogger.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -93,6 +94,7 @@
 		EDF48AA01CF9EE4900B50DCE /* CWDiscoverHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWDiscoverHelper.swift; sourceTree = "<group>"; };
 		EDF48AA21CF9F95F00B50DCE /* CWMineHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWMineHelper.swift; sourceTree = "<group>"; };
 		EDF48AA41CF9FC1C00B50DCE /* CWMineUserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWMineUserCell.swift; sourceTree = "<group>"; };
+		EDF48AA61CFA024A00B50DCE /* CWLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWLogger.swift; sourceTree = "<group>"; };
 		F5B39067CBE9F6B9F84053A7 /* Pods_CWXMPPChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CWXMPPChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -366,6 +368,7 @@
 			isa = PBXGroup;
 			children = (
 				EDF48A8B1CF9D55C00B50DCE /* UIImage+CWChat.swift */,
+				EDF48AA61CFA024A00B50DCE /* CWLogger.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -599,6 +602,7 @@
 				ED5BC2C31CF8943900E1A827 /* CWXMPPMessage.swift in Sources */,
 				EDF48A961CF9D85900B50DCE /* CWDiscoverViewController.swift in Sources */,
 				EDF48AA51CF9FC1C00B50DCE /* CWMineUserCell.swift in Sources */,
+				EDF48AA71CFA024A00B50DCE /* CWLogger.swift in Sources */,
 				ED93E7A51CF9217D0038D7CF /* CWImageMessageDispatchOperation.swift in Sources */,
 				EDF48A9B1CF9D8D300B50DCE /* CWMenuViewController.swift in Sources */,
 				ED5BC2D61CF8AB8900E1A827 /* FriendsHelper.swift in Sources */,
