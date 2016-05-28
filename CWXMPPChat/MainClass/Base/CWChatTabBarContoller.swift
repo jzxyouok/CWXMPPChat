@@ -19,20 +19,24 @@ class CWChatTabBarController: UITabBarController {
     
     func setupViewContollers() {
         
+        let attributes = [NSForegroundColorAttributeName : UIColor.chatSystemColor()]
+
+        
         let friendsVC = CWFriendsViewController()
         friendsVC.tabBarItem.title = "通讯录"
-        friendsVC.tabBarItem.selectedImage = UIImage(named: "tabbar_contactsHL")
-        friendsVC.tabBarItem.image = UIImage(named: "tabbar_contacts")
-        
+        friendsVC.tabBarItem.selectedImage = UIImage(named: "tabbar_contactsHL")?.imageWithRenderingMode(.AlwaysOriginal)
+        friendsVC.tabBarItem.image = UIImage(named: "tabbar_contacts")?.imageWithRenderingMode(.AlwaysOriginal)
+        friendsVC.tabBarItem.setTitleTextAttributes(attributes, forState: .Selected)
         let friendsNVC = CWChatNavigationController(rootViewController: friendsVC)
         
         
-        let chatListVC = CWChatListViewController()
+        let chatListVC = CWConversationsViewController()
         chatListVC.tabBarItem.title = "消息"
-        chatListVC.tabBarItem.selectedImage = UIImage(named: "tabbar_mainframeHL")
-        chatListVC.tabBarItem.image = UIImage(named: "tabbar_mainframe")
-        
+        chatListVC.tabBarItem.selectedImage = UIImage(named: "tabbar_mainframeHL")?.imageWithRenderingMode(.AlwaysOriginal)
+        chatListVC.tabBarItem.setTitleTextAttributes(attributes, forState: .Selected)
+        chatListVC.tabBarItem.image = UIImage(named: "tabbar_mainframe")?.imageWithRenderingMode(.AlwaysOriginal)
         let chatListNVC = CWChatNavigationController(rootViewController: chatListVC)
+        
         
         self.viewControllers = [chatListNVC,friendsNVC]
         

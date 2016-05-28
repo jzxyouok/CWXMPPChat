@@ -8,13 +8,14 @@
 
 import UIKit
 import SnapKit
+import AlamofireImage
 
 let  FRIENDS_SPACE_X:CGFloat     =    10.0
 let  FRIENDS_SPACE_Y:CGFloat     =    9.0
 
 class ChatFriendCell: UITableViewCell {
     
-    var user:ChatUserModel?
+    var user:CWChatUserModel?
     
     lazy var avatarImageView:UIImageView = {
         let avatarImageView = UIImageView()
@@ -59,14 +60,15 @@ class ChatFriendCell: UITableViewCell {
         }
     }
     
-    func setUserModel(user:ChatUserModel) {
+    func setUserModel(user:CWChatUserModel) {
         self.user = user
         if (user.avatarPath != nil) {
             self.avatarImageView.image = UIImage(named: user.avatarPath!)
         } else {
-            
+            let url = "http://o7ve5wypa.bkt.clouddn.com/"+user.userId
+            self.avatarImageView.af_setImageWithURL(NSURL(string: url)!)
         }
-        self.usernameLabel.text = user.username;
+        self.usernameLabel.text = user.nikeName;
     }
     
     required init?(coder aDecoder: NSCoder) {

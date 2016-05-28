@@ -9,40 +9,59 @@
 import UIKit
 import XMPPFramework
 
-private let xmppManager = CWXMPPManager()
+let xmppDomain:String = "@chenweiim.com"
+let hostName = "192.168.0.121"
+let hostPort:UInt16 = 5222
+
+let password = "123456"
+
+
+
 
 class CWXMPPManager: NSObject {
     
+    ///单例
+    internal static let shareXMPPManager = CWXMPPManager()
+    
     ///xmpp流
-    var xmppStream:XMPPStream
+    private var xmppStream:XMPPStream
     ///xmpp重新连接
-    var xmppReconnect:XMPPReconnect
+    private var xmppReconnect:XMPPReconnect
     
-    ///单利模式    
-    class func shareInstance() -> CWXMPPManager {
-        return xmppManager
-    }
+    ///消息发送
+    internal var messageTransmitter:CWMessageTransmitter
+    var xmppRoster: XMPPRoster
     
+    ///初始化方法
     private override init() {
-        let queue = dispatch_queue_create("com.cwxmppchat.cwcoder", DISPATCH_QUEUE_SERIAL)
-        
+        let queue = dispatch_queue_create("com.cwxmppchat.cwcoder", DISPATCH_QUEUE_CONCURRENT)
+
         xmppStream = XMPPStream()
         xmppReconnect = XMPPReconnect()
+        messageTransmitter = CWMessageTransmitter()
+        
+        let xmppRosterStorage = XMPPRosterMemoryStorage()
+        xmppRoster = XMPPRoster(rosterStorage: xmppRosterStorage, dispatchQueue: queue)
         
         super.init()
         
+        ///xmpp
+        xmppStream.enableBackgroundingOnSocket = true
         xmppStream.addDelegate(self, delegateQueue: queue)
+        
+        ///好友
+        xmppRoster.activate(xmppStream)
+        xmppRoster.addDelegate(self, delegateQueue: queue)
         
         ///配置xmpp重新连接的服务
         xmppReconnect.reconnectDelay = 3.0
         xmppReconnect.reconnectTimerInterval = DEFAULT_XMPP_RECONNECT_TIMER_INTERVAL
         xmppReconnect.activate(xmppStream)
         xmppReconnect.addDelegate(self, delegateQueue: queue)
-    }
-    
-    
-    func setupXMPPReconnect() {
-
+        
+        ///消息发送
+        messageTransmitter.activate(xmppStream)
+        
     }
     
     ///连接服务器
@@ -52,13 +71,11 @@ class CWXMPPManager: NSObject {
             return
         }
         
-        let xmppAccount = "tom@chenweiim.com"
-        let hostName = "192.168.0.121"
-        let hostPort:UInt16 = 5222
-        
+        //可以添加是哪个端
+        let resource = "weiweideMacBook-Simulator"
         let timeoutInterval:NSTimeInterval = 10
-        
-        xmppStream.myJID = XMPPJID.jidWithString(xmppAccount)
+
+        xmppStream.myJID = XMPPJID.jidWithUser("chenwei", domain: "chenweiim.com", resource: resource)
         
         xmppStream.hostName = hostName
         xmppStream.hostPort = hostPort
@@ -70,8 +87,9 @@ class CWXMPPManager: NSObject {
         }
     }
     
+    //发送在线信息
     func goOnline() {
-        let presence = XMPPPresence()
+        let presence = XMPPPresence(type: CWUserStatus.Online.rawValue)
         xmppStream.sendElement(presence)
     }
     
@@ -95,7 +113,6 @@ extension CWXMPPManager: XMPPStreamDelegate {
     func xmppStreamDidConnect(sender: XMPPStream!) {
         print("xmppStream-xmppStreamDidConnect")
 
-        let password = "123456"
         do {
             try xmppStream.authenticateWithPassword(password)
         } catch let error as NSError {
@@ -113,17 +130,22 @@ extension CWXMPPManager: XMPPStreamDelegate {
         print("xmppStream-xmppStreamDidAuthenticate")
         //上线
         goOnline()
+        xmppRoster.fetchRoster()
     }
     
     ///收到消息
     func xmppStream(sender: XMPPStream!, didReceiveMessage message: XMPPMessage!) {
-        print(message)
         
         //如果是聊天消息
         if message.isChatMessage() {
             
             //对方正在输入
             if message.elementForName("composing") != nil {
+                
+            }
+            
+            //对方停止输入
+            if message.elementForName("paused") != nil {
                 
             }
             
@@ -144,7 +166,7 @@ extension CWXMPPManager: XMPPStreamDelegate {
     ///收到状态信息
     func xmppStream(sender: XMPPStream!, didReceivePresence presence: XMPPPresence!) {
         
-        print(presence)
+        print("状态信息"+presence.description)
         
         let myUser = sender.myJID.user
         
@@ -157,7 +179,7 @@ extension CWXMPPManager: XMPPStreamDelegate {
         //状态
         let type = presence.type()
         
-        guard user == myUser else {
+        guard user != myUser else {
             
             return
         }
@@ -176,5 +198,31 @@ extension CWXMPPManager: XMPPStreamDelegate {
     
 }
 
-
+// MARK: - XMPPRosterDelegate 好友请求
+extension CWXMPPManager: XMPPRosterDelegate {
+    
+    ///收到好友列表
+    func xmppRosterDidEndPopulating(sender: XMPPRoster!) {
+        
+        let story = sender.xmppRosterStorage as! XMPPRosterMemoryStorage
+        let userArray = story.sortedUsersByName() as! [XMPPUser]
+        
+        for user in userArray {
+            
+            let chatUser = CWChatUserModel()
+            chatUser.nikeName = user.nickname()
+            chatUser.isOnline = user.isOnline()
+            chatUser.userName = user.jid().user
+            chatUser.userId = user.jid().full()
+            
+            FriendsHelper.shareFriendsHelper.addChatUser(chatUser)
+        }
+        
+        dispatch_async(dispatch_get_main_queue()) { 
+            NSNotificationCenter.defaultCenter().postNotificationName(CWFriendsNeedReloadNotification, object: nil)
+        }
+        //需要刷新好友列表
+        
+    }
+}
 

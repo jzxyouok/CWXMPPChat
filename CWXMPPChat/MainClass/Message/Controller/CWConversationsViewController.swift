@@ -1,5 +1,5 @@
 //
-//  CWChatListViewController.swift
+//  CWConversationsViewController.swift
 //  CWXMPPChat
 //
 //  Created by chenwei on 16/5/28.
@@ -8,16 +8,33 @@
 
 import UIKit
 
-class CWChatListViewController: UIViewController {
+///会话列表
+class CWConversationsViewController: UIViewController {
+
+    let manager = CWXMPPManager.shareXMPPManager
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = "消息"
-
-        let manager = CWXMPPManager.shareInstance()
+        self.title = "微信"
+        setupUI()
+        
         manager.connectProcess()
         // Do any additional setup after loading the view.
+    }
+    
+    func setupUI() {
+        
+        //测试发送消息
+        let rightBarItem = UIBarButtonItem(title: "发送", style: .Plain, target: self, action: #selector(CWConversationsViewController.sendMessage))
+        self.navigationItem.rightBarButtonItem = rightBarItem
+    }
+    
+    func sendMessage() {
+        
+        let random = arc4random_uniform(10000)
+        let to = "jerry"+"@chenweiim.com";
+        manager.messageTransmitter.sendMessage(String(random), toId: to, messageId: String.UUIDString())
     }
 
     override func didReceiveMemoryWarning() {

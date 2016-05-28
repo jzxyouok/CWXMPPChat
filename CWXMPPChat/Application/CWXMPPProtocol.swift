@@ -11,3 +11,17 @@ import UIKit
 protocol CWXMPPProtocol {
     
 }
+
+
+/**
+ 配置xmpp账户信息
+ */
+protocol CWXMPPManagerDataSource: NSObjectProtocol {
+    
+    var serverAddress: String {get}
+    var userName: String {get}
+    var password: String {get}
+
+}
+
+

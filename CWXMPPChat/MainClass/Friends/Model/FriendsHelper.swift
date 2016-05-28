@@ -8,27 +8,29 @@
 
 import Foundation
 
+//好友列表刷新
+let CWFriendsNeedReloadNotification:String = "com.CWFriendsNeedReloadNotification.chat"
+
 class FriendsHelper: NSObject {
     
     static let shareFriendsHelper = FriendsHelper()
-    
-    var userList = [ChatUserModel]()
+    var userList = [CWChatUserModel]()
     
     override init() {
         super.init()
-        let nameArray = ["李灵黛","冷文卿","阴露萍","柳兰歌","秦水支",
-                         "李念儿","文彩依","柳婵诗","丁玲珑","凌霜华","景茵梦"]
-        
-        for i in 10...20 {
-            let user = ChatUserModel()
-            user.avatarPath = "\(i).jpg"
-            user.userId = "100\(i)"
-            user.username = nameArray[i-10]
-            userList.append(user)
-        }
     }
     
-    class func findFriend(userid:String?) -> ChatUserModel? {
+    ///添加好友
+    func addChatUser(user: CWChatUserModel) {
+        objc_sync_enter(userList)
+        if !userList.contains(user) {
+            userList.append(user)
+        }
+        objc_sync_exit(userList)
+    }
+    
+    
+    class func findFriend(userid:String?) -> CWChatUserModel? {
         for user in FriendsHelper.shareFriendsHelper.userList {
             if userid == user.userId {
                 return user

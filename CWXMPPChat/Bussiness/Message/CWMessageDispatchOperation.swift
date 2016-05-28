@@ -126,7 +126,7 @@ class CWMessageDispatchOperation: NSOperation {
             return
         }
         
-//        ChatMessageDispense.shareMessageDispense.addMessageSendDelegate(self)
+        CWMessageTransmitter.shareMessageTransmitter.addMessageSendDelegate(self)
         //发送消息的任务
         sendMessage()
     }

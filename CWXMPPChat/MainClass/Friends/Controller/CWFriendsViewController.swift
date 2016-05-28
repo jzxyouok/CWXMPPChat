@@ -1,5 +1,5 @@
 //
-//  FriendsViewController.swift
+//  CWFriendsViewController.swift
 //  CWChat
 //
 //  Created by chenwei on 16/4/5.
@@ -10,7 +10,7 @@ import UIKit
 
 class CWFriendsViewController: UIViewController {
 
-    var userList = [ChatUserModel]()
+    var userList = [CWChatUserModel]()
     lazy var tableView:UITableView = {
         let frame = CGRect(x: 0, y: 0, width: Screen_Width, height: Screen_Height-Screen_NavigationHeight)
         let tableView = UITableView(frame: frame, style: .Plain)
@@ -25,28 +25,24 @@ class CWFriendsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setDefaultData()
         setupUI()
+        updateFriendList()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CWFriendsViewController.updateFriendList), name: CWFriendsNeedReloadNotification, object: nil)
     }
     
     func setupUI() {
         self.title = "通讯录"
         self.view.addSubview(tableView)
     }
+
+    func updateFriendList() {
+        self.userList = FriendsHelper.shareFriendsHelper.userList
+        self.tableView.reloadData()
+    }
     
-    func setDefaultData() {
-        
-        let nameArray = ["李灵黛","冷文卿","阴露萍","柳兰歌","秦水支",
-                         "李念儿","文彩依","柳婵诗","丁玲珑","凌霜华","景茵梦"]
-        
-        for i in 10...20 {
-            let user = ChatUserModel()
-            user.avatarPath = "\(i).jpg"
-            user.userId = "100\(i)"
-            user.username = nameArray[i-10]
-            userList.append(user)
-        }
-        
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
 }

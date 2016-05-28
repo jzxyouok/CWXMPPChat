@@ -1,0 +1,65 @@
+//
+//  CWChatUserModel.swift
+//  CWChat
+//
+//  Created by chenwei on 16/4/2.
+//  Copyright © 2016年 chenwei. All rights reserved.
+//
+
+import Foundation
+
+class CWChatUserModel: NSObject {
+
+    //用户id
+    var userId: String!
+    //用户名
+    var userName: String?
+    //昵称
+    var nikeName: String?
+    //备注名
+    var remarkName: String?
+    //头像URL
+    var avatarURL: String?
+    //头像路径
+    var avatarPath: String?
+    
+    var isOnline: Bool = false
+    
+    init(info: Dictionary<String, AnyObject>) {
+        
+    }
+    
+    override init() {
+        super.init()
+    }
+    
+    override var description: String {
+        var debugString = ""
+        
+        if let userId = userId {
+            debugString += "userId:" + userId + "; "
+        }
+        
+        if let userName = userName {
+            debugString += "userName:" + userName + "; "
+        }
+        
+        if let nikeName = nikeName {
+            debugString += "nikeName:" + nikeName + "; "
+        }
+        return debugString
+    }
+    
+    override var hashValue: Int {
+        return self.userId.hash
+    }
+    
+}
+
+
+func ==(lhs: CWChatUserModel, rhs: CWChatUserModel) -> Bool {
+    return lhs.userId == rhs.userId
+}
+
+
+

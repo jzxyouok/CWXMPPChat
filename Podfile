@@ -10,5 +10,8 @@ pod 'XMPPFramework'
 pod 'SnapKit'
 pod 'SwiftyJSON'
 pod 'Alamofire'
+pod 'AlamofireImage'
+
+
 end
 

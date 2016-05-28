@@ -1,5 +1,7 @@
 PODS:
   - Alamofire (3.4.0)
+  - AlamofireImage (2.4.0):
+    - Alamofire (~> 3.3)
   - CocoaAsyncSocket (7.4.3):
     - CocoaAsyncSocket/All (= 7.4.3)
   - CocoaAsyncSocket/All (7.4.3):
@@ -159,18 +161,20 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - AlamofireImage
   - SnapKit
   - SwiftyJSON
   - XMPPFramework
 
 SPEC CHECKSUMS:
   Alamofire: c19a627cefd6a95f840401c49ab1f124e07f54ee
+  AlamofireImage: 87408b652e0f5ae5fe364035f15aea8b9b24c77e
   CocoaAsyncSocket: a18c75dca4b08723628a0bacca6e94803d90be91
   CocoaLumberjack: 628fca2e88ef06f7cf6817309aa405f325d9a6fa
   SnapKit: 2756fe24b706367af224c9c508d2f9166d03354c
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
   XMPPFramework: b06c210b0b71c08aa41a646bffd2021fa43bb43b
 
-PODFILE CHECKSUM: a320280042b2a0b53ee036e8e7db99e89a04c94b
+PODFILE CHECKSUM: c94b59f0d07b14dd0966b99b0d383ee907f551bd
 
 COCOAPODS: 1.0.0
