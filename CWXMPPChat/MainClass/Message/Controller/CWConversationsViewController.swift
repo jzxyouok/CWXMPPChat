@@ -16,8 +16,7 @@ class CWConversationsViewController: UIViewController {
     var conversationList = [CWConversationModel]()
     
     lazy var tableView: UITableView = {
-        let frame = CGRect(x: 0, y: 0, width: Screen_Width, height: Screen_Height-Screen_NavigationHeight)
-        let tableView = UITableView(frame: frame, style: .Plain)
+        let tableView = UITableView(frame: self.view.bounds, style: .Plain)
         tableView.backgroundColor = UIColor.whiteColor()
         tableView.rowHeight = 64.0
         tableView.tableFooterView = UIView()

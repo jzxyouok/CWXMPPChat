@@ -22,6 +22,12 @@ typealias CWAsset = UIImage.Asset
 
 extension UIImage {
     enum Asset: String {
+        case Default_company_head = "default_company_head"
+        case Default_head = "default_head"
+        case Nav_back = "nav_back"
+        case Nav_more = "nav_more"
+        case SearchBar_voice = "searchBar_voice"
+        case SearchBar_voice_HL = "searchBar_voice_HL"
         case Discover_album = "discover_album"
         case Discover_bottle = "discover_bottle"
         case Discover_game = "discover_game"

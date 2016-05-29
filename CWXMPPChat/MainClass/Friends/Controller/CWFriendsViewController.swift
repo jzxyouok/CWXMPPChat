@@ -10,30 +10,46 @@ import UIKit
 
 class CWFriendsViewController: UIViewController {
 
+    //用户列表
     var userList = [CWChatUserModel]()
+    
+    lazy var searchController: CWSearchController = {
+        let searchController = CWSearchController(searchResultsController: self.searchResultController)
+        searchController.searchResultsUpdater = self.searchResultController
+        searchController.searchBar.placeholder = "搜索"
+        searchController.searchBar.delegate = self
+        searchController.showVoiceButton = true
+        return searchController
+    }()
+    
+    //搜索结果
+    var searchResultController:CWFriendSearchViewController = {
+        let searchResultController = CWFriendSearchViewController()
+        return searchResultController
+    }()
+    
     lazy var tableView:UITableView = {
-        let frame = CGRect(x: 0, y: 0, width: Screen_Width, height: Screen_Height-Screen_NavigationHeight)
-        let tableView = UITableView(frame: frame, style: .Plain)
-        tableView.backgroundColor = UIColor.whiteColor()
+        let tableView = UITableView(frame: self.view.bounds, style: .Grouped)
+        tableView.backgroundColor = UIColor.tableViewBackgroundColorl()
         tableView.tableFooterView = UIView()
         tableView.dataSource = self
         tableView.delegate = self
         tableView.registerClass(ChatFriendCell.self, forCellReuseIdentifier: "cell")
+        tableView.tableHeaderView = self.searchController.searchBar
         return tableView
     }()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         updateFriendList()
-        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CWFriendsViewController.updateFriendList), name: CWFriendsNeedReloadNotification, object: nil)
     }
     
     func setupUI() {
         self.title = "通讯录"
         self.view.addSubview(tableView)
+        self.view.backgroundColor = UIColor.tableViewBackgroundColorl()
     }
 
     func updateFriendList() {
@@ -44,10 +60,9 @@ class CWFriendsViewController: UIViewController {
     deinit {
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
-    
 }
 
-extension CWFriendsViewController:UITableViewDataSource {
+extension CWFriendsViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return userList.count
@@ -57,7 +72,7 @@ extension CWFriendsViewController:UITableViewDataSource {
         return 1
     }
 
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell") as! ChatFriendCell
         cell.userModel = userList[indexPath.row]
         return cell
@@ -66,7 +81,7 @@ extension CWFriendsViewController:UITableViewDataSource {
 }
 
 
-extension CWFriendsViewController:UITableViewDelegate {
+extension CWFriendsViewController: UITableViewDelegate {
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 54.0
@@ -74,7 +89,6 @@ extension CWFriendsViewController:UITableViewDelegate {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        
     }
     
 }

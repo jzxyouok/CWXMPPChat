@@ -13,8 +13,12 @@ class CWChatNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationBar.translucent = false
-        self.navigationBar.barTintColor = UIColor(red:0.21, green:0.21, blue:0.21, alpha:1)
+        //#Bug 需要解决，如果设置为false，则在好友搜索部分时，遇到问题
+//        self.navigationBar.translucent = false
+        
+        let color = UIColor(hexString: "#141414")
+        self.navigationBar.tintColor = color
+        self.navigationBar.barTintColor = color
         self.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
         // Do any additional setup after loading the view.
     }

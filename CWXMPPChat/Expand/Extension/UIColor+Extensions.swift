@@ -91,6 +91,15 @@ extension UIColor {
         return UIColor(white: 0.5, alpha: 0.3)
     }
     
+    //searchBar Color
+    class func searchBarTintColor() -> UIColor {
+        return UIColor(hexString: "#EEEEF3")
+    }
+    
+    class func searchBarBorderColor() -> UIColor {
+        return UIColor(hexString: "#EEEEF3")
+    }
+    
     class func redTipColor() -> UIColor {
         return UIColor(hexString: "#D84042")
     }
