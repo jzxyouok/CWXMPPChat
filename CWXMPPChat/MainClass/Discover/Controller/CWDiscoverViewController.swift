@@ -17,13 +17,25 @@ class CWDiscoverViewController: CWMenuViewController {
         
         let discoverHelper = CWDiscoverHelper()
         self.dataSource = discoverHelper.discoverMenuData
-        
         // Do any additional setup after loading the view.
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+}
+
+
+extension CWDiscoverViewController {
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let gameViewController = CWGameViewController()
+        gameViewController.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(gameViewController, animated: true)
+        
     }
     
 }

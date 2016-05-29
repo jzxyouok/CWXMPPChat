@@ -52,6 +52,10 @@
 		EDF48AAD1CFA87A500B50DCE /* CWTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF48AAC1CFA87A500B50DCE /* CWTableViewController.swift */; };
 		EDF48AAF1CFA883900B50DCE /* CWFriendSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF48AAE1CFA883900B50DCE /* CWFriendSearchViewController.swift */; };
 		EDF48AB11CFA8CCF00B50DCE /* CWFriendsViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF48AB01CFA8CCF00B50DCE /* CWFriendsViewController+Delegate.swift */; };
+		EDF48AB41CFACADC00B50DCE /* CWWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF48AB31CFACADC00B50DCE /* CWWebViewController.swift */; };
+		EDF48AB61CFAD63300B50DCE /* CWGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF48AB51CFAD63300B50DCE /* CWGameViewController.swift */; };
+		EDF48AB81CFAE32E00B50DCE /* UIBarButtonItem+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF48AB71CFAE32E00B50DCE /* UIBarButtonItem+Extensions.swift */; };
+		EDF48ABA1CFAE7F100B50DCE /* UIView+Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF48AB91CFAE7F100B50DCE /* UIView+Frame.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -103,6 +107,10 @@
 		EDF48AAC1CFA87A500B50DCE /* CWTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWTableViewController.swift; sourceTree = "<group>"; };
 		EDF48AAE1CFA883900B50DCE /* CWFriendSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWFriendSearchViewController.swift; sourceTree = "<group>"; };
 		EDF48AB01CFA8CCF00B50DCE /* CWFriendsViewController+Delegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CWFriendsViewController+Delegate.swift"; sourceTree = "<group>"; };
+		EDF48AB31CFACADC00B50DCE /* CWWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWWebViewController.swift; sourceTree = "<group>"; };
+		EDF48AB51CFAD63300B50DCE /* CWGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWGameViewController.swift; sourceTree = "<group>"; };
+		EDF48AB71CFAE32E00B50DCE /* UIBarButtonItem+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extensions.swift"; sourceTree = "<group>"; };
+		EDF48AB91CFAE7F100B50DCE /* UIView+Frame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Frame.swift"; sourceTree = "<group>"; };
 		F5B39067CBE9F6B9F84053A7 /* Pods_CWXMPPChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CWXMPPChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -159,8 +167,8 @@
 				ED5BC2B41CF87DD700E1A827 /* MainClass */,
 				ED5BC2B21CF87DD700E1A827 /* Bussiness */,
 				ED5BC2B31CF87DD700E1A827 /* Expand */,
-				ED5BC2A91CF87DD700E1A827 /* Application */,
 				EDF48A891CF9D52600B50DCE /* General */,
+				ED5BC2A91CF87DD700E1A827 /* Application */,
 				EDF48A8A1CF9D52600B50DCE /* Resources */,
 			);
 			path = CWXMPPChat;
@@ -216,6 +224,7 @@
 		ED5BC2B51CF87DD700E1A827 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				EDF48AB21CFACAC600B50DCE /* CWWebView */,
 				EDF48AAB1CFA879500B50DCE /* CWTableView */,
 				EDF48AA81CFA827E00B50DCE /* CWSearch */,
 				EDF48A991CF9D8BE00B50DCE /* CWMenu */,
@@ -324,6 +333,8 @@
 			children = (
 				EDF48A6F1CF93DE500B50DCE /* NSString+Extensions.swift */,
 				EDF48A731CF9895E00B50DCE /* UIColor+Extensions.swift */,
+				EDF48AB91CFAE7F100B50DCE /* UIView+Frame.swift */,
+				EDF48AB71CFAE32E00B50DCE /* UIBarButtonItem+Extensions.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -406,6 +417,7 @@
 			isa = PBXGroup;
 			children = (
 				EDF48A951CF9D85900B50DCE /* CWDiscoverViewController.swift */,
+				EDF48AB51CFAD63300B50DCE /* CWGameViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -483,6 +495,14 @@
 				EDF48AAC1CFA87A500B50DCE /* CWTableViewController.swift */,
 			);
 			path = CWTableView;
+			sourceTree = "<group>";
+		};
+		EDF48AB21CFACAC600B50DCE /* CWWebView */ = {
+			isa = PBXGroup;
+			children = (
+				EDF48AB31CFACADC00B50DCE /* CWWebViewController.swift */,
+			);
+			path = CWWebView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -614,6 +634,7 @@
 				EDF48A981CF9D88000B50DCE /* CWMineViewController.swift in Sources */,
 				EDF48A7D1CF98E3700B50DCE /* CWConversationUIConstant.swift in Sources */,
 				EDF48A701CF93DE500B50DCE /* NSString+Extensions.swift in Sources */,
+				EDF48AB81CFAE32E00B50DCE /* UIBarButtonItem+Extensions.swift in Sources */,
 				EDF48A8C1CF9D55C00B50DCE /* UIImage+CWChat.swift in Sources */,
 				ED5BC2D51CF8AB8900E1A827 /* CWFriendsViewController.swift in Sources */,
 				EDF48A741CF9895E00B50DCE /* UIColor+Extensions.swift in Sources */,
@@ -631,6 +652,7 @@
 				ED5BC2C31CF8943900E1A827 /* CWXMPPMessage.swift in Sources */,
 				EDF48A961CF9D85900B50DCE /* CWDiscoverViewController.swift in Sources */,
 				EDF48AA51CF9FC1C00B50DCE /* CWMineUserCell.swift in Sources */,
+				EDF48AB41CFACADC00B50DCE /* CWWebViewController.swift in Sources */,
 				EDF48AA71CFA024A00B50DCE /* CWLogger.swift in Sources */,
 				ED93E7A51CF9217D0038D7CF /* CWImageMessageDispatchOperation.swift in Sources */,
 				EDF48A9B1CF9D8D300B50DCE /* CWMenuViewController.swift in Sources */,
@@ -647,7 +669,9 @@
 				EDF48AA31CF9F95F00B50DCE /* CWMineHelper.swift in Sources */,
 				EDF48AAF1CFA883900B50DCE /* CWFriendSearchViewController.swift in Sources */,
 				ED5BC2B71CF87DD700E1A827 /* AppDelegate.swift in Sources */,
+				EDF48ABA1CFAE7F100B50DCE /* UIView+Frame.swift in Sources */,
 				ED5BC2DB1CF8AE4A00E1A827 /* CWConversationsViewController.swift in Sources */,
+				EDF48AB61CFAD63300B50DCE /* CWGameViewController.swift in Sources */,
 				ED5BC2C51CF899D600E1A827 /* CWChatConst.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

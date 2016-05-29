@@ -17,7 +17,7 @@ class CWChatNavigationController: UINavigationController {
 //        self.navigationBar.translucent = false
         
         let color = UIColor(hexString: "#141414")
-        self.navigationBar.tintColor = color
+        self.navigationBar.tintColor = UIColor.whiteColor()
         self.navigationBar.barTintColor = color
         self.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
         // Do any additional setup after loading the view.

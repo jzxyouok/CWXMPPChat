@@ -96,6 +96,10 @@ extension UIColor {
         return UIColor(hexString: "#EEEEF3")
     }
     
+    class func defaultBlackColor() -> UIColor {
+        return UIColor(hexString: "#2e3132")
+    }
+    
     class func searchBarBorderColor() -> UIColor {
         return UIColor(hexString: "#EEEEF3")
     }

@@ -201,7 +201,7 @@ extension CWXMPPManager: XMPPRosterDelegate {
     
     ///收到好友列表
     func xmppRosterDidEndPopulating(sender: XMPPRoster!) {
-        
+        print("获取好友信息界面")
         let story = sender.xmppRosterStorage as! XMPPRosterMemoryStorage
         let userArray = story.sortedUsersByName() as! [XMPPUser]
         

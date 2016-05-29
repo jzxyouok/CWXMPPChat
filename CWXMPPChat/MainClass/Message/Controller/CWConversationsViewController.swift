@@ -77,7 +77,6 @@ class CWConversationsViewController: UIViewController {
     
     func registerCellClass() {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateFriendList), name: CWFriendsNeedReloadNotification, object: nil)
-
         self.tableView.registerClass(CWConversationCell.self, forCellReuseIdentifier: "\(CWConversationCell.self)")
     }
 
@@ -114,8 +113,7 @@ extension CWConversationsViewController: UITableViewDelegate {
         let actionTitle = "标记已读"
         let moreAction = UITableViewRowAction(style: UITableViewRowActionStyle.Normal, title: actionTitle) { (action:UITableViewRowAction, indexPath) in
             
-            tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .None)
-            
+            tableView.setEditing(false, animated: true)
         }
         return [deleteAction,moreAction]
     }
