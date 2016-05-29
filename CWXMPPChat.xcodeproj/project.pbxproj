@@ -56,6 +56,7 @@
 		EDF48AB61CFAD63300B50DCE /* CWGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF48AB51CFAD63300B50DCE /* CWGameViewController.swift */; };
 		EDF48AB81CFAE32E00B50DCE /* UIBarButtonItem+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF48AB71CFAE32E00B50DCE /* UIBarButtonItem+Extensions.swift */; };
 		EDF48ABA1CFAE7F100B50DCE /* UIView+Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF48AB91CFAE7F100B50DCE /* UIView+Frame.swift */; };
+		EDF48ABE1CFB4A8200B50DCE /* CWMessageCracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF48ABD1CFB4A8200B50DCE /* CWMessageCracker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -111,6 +112,7 @@
 		EDF48AB51CFAD63300B50DCE /* CWGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWGameViewController.swift; sourceTree = "<group>"; };
 		EDF48AB71CFAE32E00B50DCE /* UIBarButtonItem+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extensions.swift"; sourceTree = "<group>"; };
 		EDF48AB91CFAE7F100B50DCE /* UIView+Frame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Frame.swift"; sourceTree = "<group>"; };
+		EDF48ABD1CFB4A8200B50DCE /* CWMessageCracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWMessageCracker.swift; sourceTree = "<group>"; };
 		F5B39067CBE9F6B9F84053A7 /* Pods_CWXMPPChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CWXMPPChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -183,8 +185,8 @@
 				ED5BC2AE1CF87DD700E1A827 /* Main.storyboard */,
 				ED5BC2B01CF87DD700E1A827 /* Info.plist */,
 				ED93E7941CF91E8B0038D7CF /* CWXMPPProtocol.swift */,
-				ED5BC2C21CF8943900E1A827 /* CWXMPPMessage.swift */,
 				ED5BC2C01CF885FD00E1A827 /* CWXMPPManager.swift */,
+				ED5BC2C21CF8943900E1A827 /* CWXMPPMessage.swift */,
 				ED93E7971CF91EDE0038D7CF /* CWMessageTransmitter.swift */,
 				ED5BC2C41CF899D600E1A827 /* CWChatConst.swift */,
 			);
@@ -194,6 +196,7 @@
 		ED5BC2B21CF87DD700E1A827 /* Bussiness */ = {
 			isa = PBXGroup;
 			children = (
+				EDF48ABC1CFB4A6700B50DCE /* MessageCracker */,
 				ED93E79D1CF9215B0038D7CF /* Message */,
 			);
 			path = Bussiness;
@@ -505,6 +508,14 @@
 			path = CWWebView;
 			sourceTree = "<group>";
 		};
+		EDF48ABC1CFB4A6700B50DCE /* MessageCracker */ = {
+			isa = PBXGroup;
+			children = (
+				EDF48ABD1CFB4A8200B50DCE /* CWMessageCracker.swift */,
+			);
+			path = MessageCracker;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -661,6 +672,7 @@
 				ED5BC2D71CF8AB8900E1A827 /* ChatFriendCell.swift in Sources */,
 				ED5BC2D91CF8ABEE00E1A827 /* CWChatUserModel.swift in Sources */,
 				EDF48A721CF9829800B50DCE /* CWChatViewController.swift in Sources */,
+				EDF48ABE1CFB4A8200B50DCE /* CWMessageCracker.swift in Sources */,
 				EDF48AAD1CFA87A500B50DCE /* CWTableViewController.swift in Sources */,
 				EDF48A9D1CF9D8F600B50DCE /* CWMenuCell.swift in Sources */,
 				EDF48A801CF98EDB00B50DCE /* ChatTimeTool.swift in Sources */,

@@ -8,6 +8,7 @@
 
 import UIKit
 import XMPPFramework
+import Alamofire
 
 let xmppDomain:String = "@chenweiim.com"
 let hostName = "192.168.0.121"
@@ -15,53 +16,73 @@ let hostPort:UInt16 = 5222
 
 let password = "123456"
 
-
-
-
 class CWXMPPManager: NSObject {
     
     ///单例
     internal static let shareXMPPManager = CWXMPPManager()
     
+    private var xmppQueue: dispatch_queue_t
     ///xmpp流
-    private var xmppStream:XMPPStream
+    private var xmppStream: XMPPStream
     ///xmpp重新连接
-    private var xmppReconnect:XMPPReconnect
+    private var xmppReconnect: XMPPReconnect
     
     ///消息发送
-    internal var messageTransmitter:CWMessageTransmitter
+    internal var messageTransmitter: CWMessageTransmitter
+    internal var messageCracker: CWMessageCracker
+    
     var xmppRoster: XMPPRoster
+    
+    ///当前连接状态
+    var currentState: CWXMPPStatus {
+        var state: CWXMPPStatus = .None
+        if xmppStream.isDisconnected() {
+            state = .Disconnected
+        }
+        else if xmppStream.isConnected() && xmppStream.isAuthenticated() {
+            state = .Connected
+        } else {
+            state = .Connecting
+        }
+        return state
+    }
+    
+    var reachable: NetworkReachabilityManager?
     
     ///初始化方法
     private override init() {
-        let queue = dispatch_queue_create("com.cwxmppchat.cwcoder", DISPATCH_QUEUE_CONCURRENT)
+        xmppQueue = dispatch_queue_create("com.cwxmppchat.cwcoder", DISPATCH_QUEUE_CONCURRENT)
 
         xmppStream = XMPPStream()
         xmppReconnect = XMPPReconnect()
         messageTransmitter = CWMessageTransmitter()
-        
+        messageCracker = CWMessageCracker()
         let xmppRosterStorage = XMPPRosterMemoryStorage()
-        xmppRoster = XMPPRoster(rosterStorage: xmppRosterStorage, dispatchQueue: queue)
+        xmppRoster = XMPPRoster(rosterStorage: xmppRosterStorage, dispatchQueue: xmppQueue)
+        
         
         super.init()
         
         ///xmpp
         xmppStream.enableBackgroundingOnSocket = true
-        xmppStream.addDelegate(self, delegateQueue: queue)
+        xmppStream.addDelegate(self, delegateQueue: xmppQueue)
         
         ///好友
         xmppRoster.activate(xmppStream)
-        xmppRoster.addDelegate(self, delegateQueue: queue)
+        xmppRoster.addDelegate(self, delegateQueue: xmppQueue)
         
         ///配置xmpp重新连接的服务
         xmppReconnect.reconnectDelay = 3.0
         xmppReconnect.reconnectTimerInterval = DEFAULT_XMPP_RECONNECT_TIMER_INTERVAL
         xmppReconnect.activate(xmppStream)
-        xmppReconnect.addDelegate(self, delegateQueue: queue)
+        xmppReconnect.addDelegate(self, delegateQueue: xmppQueue)
         
         ///消息发送
         messageTransmitter.activate(xmppStream)
+        messageCracker.activate(xmppStream)
         
+        setupNetworkReachable()
+        registerApplicationNotification()
     }
     
     ///连接服务器
@@ -87,6 +108,31 @@ class CWXMPPManager: NSObject {
         }
     }
     
+    ///注册观察者
+    func registerApplicationNotification() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(applicationWillEnterForeground(_:)), name: UIApplicationWillEnterForegroundNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(applicationWillResignActive(_:)), name: UIApplicationWillResignActiveNotification, object: nil)
+    }
+    
+    func setupNetworkReachable() {
+        ///监视网络变化
+        reachable = NetworkReachabilityManager(host: "http://www.baidu.com")
+        reachable?.startListening()
+        let listener = { (status: NetworkReachabilityManager.NetworkReachabilityStatus) in
+            print("网络状态:\(status)")
+        }
+        reachable?.listener = listener
+    }
+    
+    
+    func applicationWillEnterForeground(application: UIApplication) {
+        
+    }
+    
+    func applicationWillResignActive(application: UIApplication) {
+        
+    }
+    
     //发送在线信息
     func goOnline() {
         let presence = XMPPPresence(type: CWUserStatus.Online.rawValue)
@@ -97,11 +143,23 @@ class CWXMPPManager: NSObject {
         let offline = XMPPPresence(type: CWUserStatus.Offline.rawValue)
         xmppStream.sendElement(offline)
     }
+    
+    ///MARK: 销毁
+    deinit {
+        xmppReconnect.removeDelegate(self, delegateQueue: xmppQueue)
+        xmppReconnect.deactivate()
+        
+        xmppStream.removeDelegate(self, delegateQueue: xmppQueue)
+        xmppStream.disconnect()
+        
+        reachable?.stopListening()
+    }
 
 }
 
 // MARK: - XMPPStreamDelegate
 extension CWXMPPManager: XMPPStreamDelegate {
+    
     
     ///
     func xmppStreamWillConnect(sender: XMPPStream!) {
@@ -109,10 +167,14 @@ extension CWXMPPManager: XMPPStreamDelegate {
 
     }
     
+    ///连接失败
+    func xmppStreamDidDisconnect(sender: XMPPStream!, withError error: NSError!) {
+        
+    }
+    
     ///已经连接，就输入密码
     func xmppStreamDidConnect(sender: XMPPStream!) {
         print("xmppStream-xmppStreamDidConnect")
-
         do {
             try xmppStream.authenticateWithPassword(password)
         } catch let error as NSError {
@@ -130,7 +192,6 @@ extension CWXMPPManager: XMPPStreamDelegate {
         print("xmppStream-xmppStreamDidAuthenticate")
         //上线
         goOnline()
-        xmppRoster.fetchRoster()
     }
     
     ///收到消息

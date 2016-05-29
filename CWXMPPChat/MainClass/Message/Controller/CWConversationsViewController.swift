@@ -49,7 +49,7 @@ class CWConversationsViewController: UIViewController {
     
     func sendMessage() {
         let random = arc4random_uniform(10000)
-        let to = "tom"+"@chenweiim.com";
+        let to = "jerry"+"@chenweiim.com";
         manager.messageTransmitter.sendMessage(String(random), toId: to, messageId: String.UUIDString())
     }
     

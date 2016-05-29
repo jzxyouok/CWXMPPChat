@@ -12,6 +12,20 @@ protocol CWXMPPProtocol {
     
 }
 
+/**
+ XMPP当前连接状态
+ 
+ - None:         默认状态
+ - Connected:    已经连接
+ - Connecting:   连接中
+ - Disconnected: 未连接
+ */
+enum CWXMPPStatus {
+    case None
+    case Connected
+    case Connecting
+    case Disconnected
+}
 
 /**
  配置xmpp账户信息
