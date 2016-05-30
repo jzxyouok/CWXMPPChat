@@ -29,9 +29,11 @@ class CWXMPPManager: NSObject {
     
     ///消息发送
     private(set) var messageTransmitter: CWMessageTransmitter
+    ///消息解析
     private(set) var messageCracker: CWMessageCracker
-    var turnSockets = [AnyObject]()
-    
+    ///消息回执
+    private var deliveryReceipts: XMPPMessageDeliveryReceipts
+    ///获取好友请求
     var xmppRoster: XMPPRoster
     
     ///当前连接状态
@@ -61,6 +63,8 @@ class CWXMPPManager: NSObject {
         let xmppRosterStorage = XMPPRosterMemoryStorage()
         xmppRoster = XMPPRoster(rosterStorage: xmppRosterStorage, dispatchQueue: xmppQueue)
         
+        ///消息回执
+        deliveryReceipts = XMPPMessageDeliveryReceipts()
         
         super.init()
         
@@ -78,10 +82,15 @@ class CWXMPPManager: NSObject {
         xmppReconnect.activate(xmppStream)
         xmppReconnect.addDelegate(self, delegateQueue: xmppQueue)
         
+        ///消息回执
+        deliveryReceipts.activate(xmppStream)
+        deliveryReceipts.autoSendMessageDeliveryReceipts = true
+        
         ///消息发送
         messageTransmitter.activate(xmppStream)
         messageCracker.activate(xmppStream)
         
+      
         setupNetworkReachable()
         registerApplicationNotification()
     }

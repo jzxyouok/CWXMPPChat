@@ -12,7 +12,7 @@ import UIKit
 class CWChatViewController: CWBaseMessageViewController {
 
     let queue = CWMessageDispatchQueue()
-    
+    var toId: String?
     /// 消息数据数组
     var messageList = [CWMessageProtocol]()
     
@@ -44,10 +44,9 @@ class CWChatViewController: CWBaseMessageViewController {
     
     func sendMessage() {
         let random = arc4random_uniform(10000)
-        let to = "jerry"+"@chenweiim.com";
 
         let message = CWMessageModel()
-        message.messageSendId = to
+        message.messageSendId = toId
         message.messageType = .Text
         message.content = "\(random)\(String.UUIDString())"
         

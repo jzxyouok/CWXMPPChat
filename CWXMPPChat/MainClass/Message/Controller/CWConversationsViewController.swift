@@ -49,7 +49,7 @@ class CWConversationsViewController: CWBaseMessageViewController {
     
     func sendMessage() {
         let random = arc4random_uniform(10000)
-        let to = "jerry"+"@chenweiim.com";
+        let to = "tom"+"@chenweiim.com";
         manager.messageTransmitter.sendMessage(String(random), toId: to, messageId: String.UUIDString())
     }
     
@@ -57,16 +57,22 @@ class CWConversationsViewController: CWBaseMessageViewController {
 
         let model1 = CWConversationModel()
         model1.partnerID = "tom@chenweiim.com"
-        model1.content = "hello"
+        model1.content = "Tom"
         model1.conversationDate = NSDate()
         
         let model2 = CWConversationModel()
         model2.partnerID = "jerry@chenweiim.com"
-        model2.content = "world"
+        model2.content = "Jerry"
         model2.conversationDate = NSDate()
+        
+        let model3 = CWConversationModel()
+        model3.partnerID = "chenwei@chenweiim.com"
+        model3.content = "Chenwei"
+        model3.conversationDate = NSDate()
 
         conversationList.append(model1)
         conversationList.append(model2)
+        conversationList.append(model3)
 
         self.tableView.reloadData()
     }
@@ -122,6 +128,7 @@ extension CWConversationsViewController: UITableViewDelegate {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         let chatVC = CWChatViewController()
         chatVC.hidesBottomBarWhenPushed = true
+        chatVC.toId = self.conversationList[indexPath.row].partnerID
         self.navigationController?.pushViewController(chatVC, animated: true)
     }
     

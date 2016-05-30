@@ -46,6 +46,7 @@ extension CWMessageCracker: XMPPStreamDelegate {
      收到消息 并处理
      */
     func xmppStream(sender: XMPPStream!, didReceiveMessage message: XMPPMessage!) {
+        print(message)
         //如果是聊天消息
         if message.isChatMessage() {
             

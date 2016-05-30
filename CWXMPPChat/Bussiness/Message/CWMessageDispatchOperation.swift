@@ -158,7 +158,7 @@ class CWMessageDispatchOperation: NSOperation {
 
     
     deinit {
-        CWLog("operation销毁....")
+        CWLog("operation销毁")
     }
     
 }
@@ -166,7 +166,6 @@ class CWMessageDispatchOperation: NSOperation {
 extension CWMessageDispatchOperation:CWMessageTransmitterDelegate {
    
     func messageSendCallback(result:Bool) {
-        CWLog("发送消息结果\(chatMessage!.description)\(repeatCount)次---\(result) \(NSDate())")
         if result == false {
             repeatCount += 1
             if repeatCount > Max_RepeatCount {

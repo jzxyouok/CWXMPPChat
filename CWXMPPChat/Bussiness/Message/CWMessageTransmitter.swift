@@ -38,9 +38,16 @@ class CWMessageTransmitter: XMPPModule {
         super.init()
     }
     
+
     /**
      发送消息
      
+     - parameter content:   消息内容
+     - parameter toId:      发送到对方的JID
+     - parameter messageId: 消息Id
+     - parameter type:      消息类型
+     
+     - returns: 发送消息的结果
      */
     func sendMessage(content:String, toId:String, messageId:String, type:Int = 1) -> Bool {
 
@@ -56,36 +63,22 @@ class CWMessageTransmitter: XMPPModule {
     }
     
     /**
-     组装XML消息体
+     组装XMPPMessage消息体
      
      - parameter message:   消息内容
      - parameter to:        发送到对方的JID
      - parameter messageId: 消息Id
      
-     - returns: 消息XML的实体
+     - returns: 消息XMPPMessage的实体
      */
-    func messageElement(message: String, to: String, messageId: String) -> DDXMLElement {
-    
+    func messageElement(body: String, to: String, messageId: String) -> XMPPMessage {
         //消息内容
-        let body = DDXMLElement.elementWithName("body") as! DDXMLElement
-        body.setStringValue(message)
-        
-        //消息体
-        let message = DDXMLElement.elementWithName("message") as! DDXMLElement
-        message.addAttributeWithName("xmlns", stringValue: "jabber:client")
-
-        //可以自定义，看看是否显示是哪个端的。
-        let myJID = self.xmppStream.myJID
-        let from = "\(myJID.user)"+"@\(myJID.domain)";
-        
-        message.addAttributeWithName("from", stringValue: from)
+        let message = XMPPMessage(type: "chat", elementID: messageId)
         message.addAttributeWithName("to", stringValue: to)
-        message.addAttributeWithName("type", stringValue: "chat")
-        message.addAttributeWithName("id", stringValue: messageId)
-        
-        message.addChild(body)
-        CWLog(message)
-        return message
+        message.addReceiptRequest()
+        message.addBody(body)
+        print(message)
+        return XMPPMessage(fromElement: message)
     }
     
     #if test
