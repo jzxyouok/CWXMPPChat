@@ -1,5 +1,5 @@
 //
-//  CWBaseMessageTableViewCell.swift
+//  CWBaseMessageCell.swift
 //  CWXMPPChat
 //
 //  Created by chenwei on 16/5/28.
@@ -10,7 +10,7 @@ import UIKit
 
 let TIMELABEL_SPACE_Y:CGFloat     = 10.0
 
-class CWBaseMessageTableViewCell: UITableViewCell {
+class CWBaseMessageCell: UITableViewCell {
     
     ///用户名称
     var usernameLabel:UILabel = {
@@ -18,18 +18,6 @@ class CWBaseMessageTableViewCell: UITableViewCell {
         usernameLabel.backgroundColor = UIColor.clearColor()
         usernameLabel.font = UIFont.systemFontOfSize(12)
         return usernameLabel
-    }()
-    
-    ///时间
-    var timeLabel:UILabel = {
-        let timeLabel = UILabel()
-        timeLabel.font = UIFont.systemFontOfSize(12)
-        timeLabel.textColor = UIColor.whiteColor()
-        timeLabel.backgroundColor = UIColor.grayColor()
-        timeLabel.alpha = 0.7
-        timeLabel.layer.cornerRadius = 5
-        timeLabel.clipsToBounds = true
-        return timeLabel
     }()
     
     ///头像
@@ -81,13 +69,7 @@ class CWBaseMessageTableViewCell: UITableViewCell {
         self.contentView.addSubview(self.avatarButton)
         self.contentView.addSubview(self.messageBackgroundView)
         self.contentView.addSubview(self.activityView)
-        self.contentView.addSubview(self.timeLabel)
         self.contentView.addSubview(self.errorButton)
-        
-        timeLabel.snp_makeConstraints { (make) in
-            make.top.equalTo(self.contentView).offset(TIMELABEL_SPACE_Y)
-            make.centerX.equalTo(self.contentView)
-        }
     }
     
     required init?(coder aDecoder: NSCoder) {
