@@ -19,25 +19,16 @@ let cacheDirectory: NSURL = {
     return urls[urls.endIndex - 1]
 }()
 
-let CWLog: XCGLogger = {
-    // Setup XCGLogger
-    let log = XCGLogger.defaultInstance()
-    log.xcodeColorsEnabled = true // Or set the XcodeColors environment variable in your scheme to YES
-    log.xcodeColors = [
-        .Verbose: .lightGrey,
-        .Debug: .darkGrey,
-        .Info: .darkGreen,
-        .Warning: .orange,
-        .Error: XCGLogger.XcodeColor(fg: UIColor.redColor(), bg: UIColor.clearColor()), // Optionally use a UIColor
-        .Severe: XCGLogger.XcodeColor(fg: (255, 255, 255), bg: (255, 0, 0)) // Optionally use RGB values directly
-    ]
-    
-    #if USE_NSLOG // Set via Build Settings, under Other Swift Flags
+func CWLogMethod() {
+    CWLog("")
+}
 
-    #else
-    let logPath: NSURL = cacheDirectory.URLByAppendingPathComponent("ts_wechat_Log.txt")
-    log.setup(.Debug, showThreadName: false, showLogLevel: false, showFileNames: true, showLineNumbers: false, writeToFile: logPath)
-    #endif
+func CWLog<T>(message: T, fileName: String = #file, methodName: String =  #function, lineNumber: Int = #line)
+{
+//    #if DEBUG
+        let str : String = (fileName as NSString).pathComponents.last!.stringByReplacingOccurrencesOfString("swift", withString: "")
     
-    return log
-}()
+        print("\(str)\(methodName)[\(lineNumber)]:\(message)")
+    
+//    #endif
+}

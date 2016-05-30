@@ -26,8 +26,10 @@ protocol CWMessageTransmitterDelegate:class {
  */
 class CWMessageTransmitter: XMPPModule {
 
-    static let shareMessageTransmitter = CWMessageTransmitter()
-
+    class func shareMessageTransmitter() -> CWMessageTransmitter {
+        return CWXMPPManager.shareXMPPManager.messageTransmitter
+    }
+    
     override init!(dispatchQueue queue: dispatch_queue_t!) {
         super.init(dispatchQueue: queue)
     }
@@ -36,21 +38,32 @@ class CWMessageTransmitter: XMPPModule {
         super.init()
     }
     
-    func sendMessage(content:String, toId:String, messageId:String,type:Int = 1) {
+    /**
+     发送消息
+     
+     */
+    func sendMessage(content:String, toId:String, messageId:String, type:Int = 1) -> Bool {
 
         let messageElement = self.messageElement(content, to: toId, messageId: messageId)
         
-        var receipte: XMPPElementReceipt? = nil
-        
+        var receipte: XMPPElementReceipt?
         self.xmppStream.sendElement(messageElement, andGetReceipt: &receipte)
-        
-        let result = receipte?.wait(sendMessageTimeoutInterval)
-        if result?.boolValue == false {
-           print("消息发送成功")
+        guard let elementReceipte = receipte else {
+            return false
         }
-        
+        let result = elementReceipte.wait(sendMessageTimeoutInterval)
+        return result
     }
     
+    /**
+     组装XML消息体
+     
+     - parameter message:   消息内容
+     - parameter to:        发送到对方的JID
+     - parameter messageId: 消息Id
+     
+     - returns: 消息XML的实体
+     */
     func messageElement(message: String, to: String, messageId: String) -> DDXMLElement {
     
         //消息内容
@@ -61,20 +74,23 @@ class CWMessageTransmitter: XMPPModule {
         let message = DDXMLElement.elementWithName("message") as! DDXMLElement
         message.addAttributeWithName("xmlns", stringValue: "jabber:client")
 
-        let from = "chenwei"+"@chenweiim.com";
+        //可以自定义，看看是否显示是哪个端的。
+        let myJID = self.xmppStream.myJID
+        let from = "\(myJID.user)"+"@\(myJID.domain)";
+        
         message.addAttributeWithName("from", stringValue: from)
         message.addAttributeWithName("to", stringValue: to)
         message.addAttributeWithName("type", stringValue: "chat")
         message.addAttributeWithName("id", stringValue: messageId)
         
         message.addChild(body)
-        print(message)
+        CWLog(message)
         return message
     }
     
-//    #if test
+    #if test
     //MARK: 另一种实现方式
-    //可以自定义delegate来完成
+    //可以自定义delegate来完成,
     private var delegateArray = [CWMessageTransmitterDelegate]()
     func addMessageSendDelegate(delegate: CWMessageTransmitterDelegate) {
         delegateArray.append(delegate)
@@ -83,12 +99,11 @@ class CWMessageTransmitter: XMPPModule {
     func removeMessageSendDelegate(delegate: CWMessageTransmitterDelegate) {
         delegateArray = delegateArray.filter{ $0 !== delegate}
     }
+    #endif
     
     func sendMessageResult(result: Bool) {
-        for observer in self.delegateArray {
-            observer.messageSendCallback(result)
-        }
+ 
+        
     }
-//    #endif
     
 }

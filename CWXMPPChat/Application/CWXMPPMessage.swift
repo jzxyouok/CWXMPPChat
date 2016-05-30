@@ -10,7 +10,7 @@ import UIKit
 import XMPPFramework
 
 
-let CWXMPPMessageTextType:String = "chat"
+let CWXMPPMessageChatType:String = "chat"
 
 
 /**
@@ -40,6 +40,11 @@ class CWXMPPMessage: NSObject {
         //对方正在输入
         if message.elementForName("composing") != nil {
             self.composing = true
+        }
+        
+        //对方停止输入
+        if message.elementForName("paused") != nil {
+            self.composing = false
         }
         
         let delayElement = message.elementForName("delay")

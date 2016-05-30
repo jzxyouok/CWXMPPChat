@@ -60,6 +60,7 @@
 		EDF48AC41CFBBCB500B50DCE /* CWBaseMessageHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF48AC31CFBBCB500B50DCE /* CWBaseMessageHandle.swift */; };
 		EDF48AC61CFBDCDE00B50DCE /* CWChatMessageHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF48AC51CFBDCDE00B50DCE /* CWChatMessageHandle.swift */; };
 		EDF48AC81CFBDE4000B50DCE /* CWMessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF48AC71CFBDE4000B50DCE /* CWMessageModel.swift */; };
+		EDF48B0E1CFC2DD300B50DCE /* CWBaseMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF48B0D1CFC2DD300B50DCE /* CWBaseMessageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -119,6 +120,7 @@
 		EDF48AC31CFBBCB500B50DCE /* CWBaseMessageHandle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWBaseMessageHandle.swift; sourceTree = "<group>"; };
 		EDF48AC51CFBDCDE00B50DCE /* CWChatMessageHandle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWChatMessageHandle.swift; sourceTree = "<group>"; };
 		EDF48AC71CFBDE4000B50DCE /* CWMessageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWMessageModel.swift; sourceTree = "<group>"; };
+		EDF48B0D1CFC2DD300B50DCE /* CWBaseMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWBaseMessageViewController.swift; sourceTree = "<group>"; };
 		F5B39067CBE9F6B9F84053A7 /* Pods_CWXMPPChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CWXMPPChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -301,6 +303,7 @@
 		ED5BC2D21CF8AB8900E1A827 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				EDF48B0D1CFC2DD300B50DCE /* CWBaseMessageViewController.swift */,
 				ED5BC2DA1CF8AE4A00E1A827 /* CWConversationsViewController.swift */,
 				EDF48A711CF9829800B50DCE /* CWChatViewController.swift */,
 			);
@@ -669,6 +672,7 @@
 				EDF48A981CF9D88000B50DCE /* CWMineViewController.swift in Sources */,
 				EDF48AC81CFBDE4000B50DCE /* CWMessageModel.swift in Sources */,
 				EDF48A7D1CF98E3700B50DCE /* CWConversationUIConstant.swift in Sources */,
+				EDF48B0E1CFC2DD300B50DCE /* CWBaseMessageViewController.swift in Sources */,
 				EDF48A701CF93DE500B50DCE /* NSString+Extensions.swift in Sources */,
 				EDF48AB81CFAE32E00B50DCE /* UIBarButtonItem+Extensions.swift in Sources */,
 				EDF48A8C1CF9D55C00B50DCE /* UIImage+CWChat.swift in Sources */,

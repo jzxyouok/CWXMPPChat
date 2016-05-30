@@ -8,9 +8,19 @@
 
 import UIKit
 
+protocol CWMessageHandleProtocol:NSObjectProtocol {
+    func handleResult(handle: CWBaseMessageHandle, message: CWMessageModel, isDelay: Bool)
+}
+
 ///消息处理的基类
 class CWBaseMessageHandle: NSObject {
 
+    //代理
+    weak var delegate: CWMessageHandleProtocol?
+    
+    override init() {
+        super.init()
+    }
     
     func handleMessage(message: CWXMPPMessage) {
         
@@ -44,7 +54,7 @@ class CWBaseMessageHandle: NSObject {
             }
             
         } catch let error as NSError {
-            print(error)
+            CWLog(error)
             return (body, .Text)
         }
         

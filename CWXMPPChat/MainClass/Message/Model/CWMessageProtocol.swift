@@ -25,14 +25,15 @@ public enum CWConversationType: Int {
 
 //MARK: 消息
 ///消息聊天类型
-public enum CWMessagePartnerType: Int {
-    case Personal
+public enum CWChatType: Int {
+    case None
+    case Single
     case Group
 }
 
 ///消息所属类型
 public enum CWMessageOwnerType : Int {
-    case Unknow  //未知
+    case None  //未知
     case System   //系统消息
     case Myself   //自己发送的
     case Other    //接受到朋友发送的
@@ -40,7 +41,7 @@ public enum CWMessageOwnerType : Int {
 
 ///消息类型
 public enum CWMessageType : Int {
-    case Unknow             //未知
+    case None              //未知
     case Text               //文字
     case Image              //图片
     case Voice              //声音
@@ -128,29 +129,30 @@ let  MAX_SHOWTIME_MESSAGE_SECOND:Double =     30
 ///消息的协议
 protocol CWMessageProtocol: NSObjectProtocol {
     
-    var messageID:String { get }            //消息ID
-    var userID:String?  { get set }         //发送者ID
-    var friendID:String? {get set}          //接收者ID
+    var messageID: String { get }            //消息ID
+    var messageSendId: String?  { get set }         //发送者ID
+    var messageReceiveId: String? {get set}          //接收者ID
     
-    ///是否显示时间
-    var showTime:Bool { get set }
-    ///是否用户名称
-    var showUsername:Bool { get set }
-
-    var messageSendDate:NSDate {get set}       //消息发送时间
-
-    var partnerType:CWMessagePartnerType {get set}     //消息接收者
-    var messageOwnerType:CWMessageOwnerType {get set}  //消息所属类型
+    var content: String? {get set}
+//    ///是否显示时间
+//    var showTime:Bool { get set }
+//    ///是否用户名称
+//    var showUsername:Bool { get set }
+//
+//    var messageSendDate:NSDate {get set}       //消息发送时间
+//
+//    var partnerType:CWChatType {get set}     //消息接收者
+//    var messageOwnerType:CWMessageOwnerType {get set}  //消息所属类型
     var messageType:CWMessageType {get set}            //消息类型
-    
-    var messageSendState:CWMessageSendState {get set}  //消息发送状态
-    var messageReadState:CWMessageReadState {get set}  //消息读取状态
-    var messagePlayState:CWMessagePlayState {get set}  //消息播放状态
-    var messageUploadState:CWMessageUploadState {get set} //消息上传状态
-    //
-    //
-    var conversationContent:String {get}
-    var contentInfo:Dictionary<String,AnyObject>? {get}
+//
+//    var messageSendState:CWMessageSendState {get set}  //消息发送状态
+//    var messageReadState:CWMessageReadState {get set}  //消息读取状态
+//    var messagePlayState:CWMessagePlayState {get set}  //消息播放状态
+//    var messageUploadState:CWMessageUploadState {get set} //消息上传状态
+//    //
+//    //
+//    var conversationContent:String {get}
+//    var contentInfo:Dictionary<String,AnyObject>? {get}
 }
 
 

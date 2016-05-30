@@ -9,12 +9,12 @@
 import Foundation
 
 ///重复发送次数
-let Max_RepeatCount:Int = 3
+let Max_RepeatCount:Int = 5
 
 /// 发送消息的基类
 class CWMessageDispatchOperation: NSOperation {
     
-    weak var chatmessage: CWMessageProtocol?
+    weak var chatMessage: CWMessageProtocol?
         /// 进度回调的block
     var progressBlock: ((Float,Bool)-> Void)?
     
@@ -70,6 +70,11 @@ class CWMessageDispatchOperation: NSOperation {
     //重复执行的次数
     internal var repeatCount: Int = 0
     
+    //简化代码
+    var messageTransmitter: CWMessageTransmitter {
+        return CWMessageTransmitter.shareMessageTransmitter()
+    }
+    
     /**
      根据消息类型生成对应的Operation
      
@@ -77,7 +82,7 @@ class CWMessageDispatchOperation: NSOperation {
      
      - returns: 返回对应的消息Operation
      */
-    class func transmitterWithMessage(message:CWMessageProtocol) -> CWMessageDispatchOperation {
+    class func dispatchOperationWithMessage(message:CWMessageProtocol) -> CWMessageDispatchOperation {
         
         if message.messageType == .Text {
             return CWTextMessageDispatchOperation(message:message)
@@ -91,7 +96,7 @@ class CWMessageDispatchOperation: NSOperation {
     }
     
     init(message: CWMessageProtocol) {
-        self.chatmessage = message
+        self.chatMessage = message
         repeatCount = 1
         messageSendResult = false
         super.init()
@@ -126,7 +131,7 @@ class CWMessageDispatchOperation: NSOperation {
             return
         }
         
-        CWMessageTransmitter.shareMessageTransmitter.addMessageSendDelegate(self)
+        messageTransmitter.addDelegate(self, delegateQueue: nil)
         //发送消息的任务
         sendMessage()
     }
@@ -137,7 +142,7 @@ class CWMessageDispatchOperation: NSOperation {
     }
     
     ///消息状态
-    func noticationWithOperationState(state:Bool) {
+    func noticationWithOperationState(state:Bool = false) {
         self.messageSendResult = state
         endOperation()
     }
@@ -148,11 +153,12 @@ class CWMessageDispatchOperation: NSOperation {
     func endOperation() {
         self.local_executing = false
         self.local_finished = true
+        messageTransmitter.removeDelegate(self)
     }
 
     
     deinit {
-        print("operation销毁....")
+        CWLog("operation销毁....")
     }
     
 }
@@ -160,17 +166,17 @@ class CWMessageDispatchOperation: NSOperation {
 extension CWMessageDispatchOperation:CWMessageTransmitterDelegate {
    
     func messageSendCallback(result:Bool) {
-        print("发送消息结果\(chatmessage!.description)---\(result) \(NSDate())")
+        CWLog("发送消息结果\(chatMessage!.description)\(repeatCount)次---\(result) \(NSDate())")
         if result == false {
             repeatCount += 1
             if repeatCount > Max_RepeatCount {
-                CWMessageTransmitter.shareMessageTransmitter.removeMessageSendDelegate(self)
+                messageTransmitter.removeDelegate(self)
                 noticationWithOperationState(false)
             } else {
                 sendMessage()
             }
         } else {
-            CWMessageTransmitter.shareMessageTransmitter.removeMessageSendDelegate(self)
+            messageTransmitter.removeDelegate(self)
             noticationWithOperationState(true)
         }
     }

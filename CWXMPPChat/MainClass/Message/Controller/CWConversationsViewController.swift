@@ -9,7 +9,7 @@
 import UIKit
 
 ///会话列表
-class CWConversationsViewController: UIViewController {
+class CWConversationsViewController: CWBaseMessageViewController {
 
     let manager = CWXMPPManager.shareXMPPManager
 
@@ -120,13 +120,12 @@ extension CWConversationsViewController: UITableViewDelegate {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        
-        
+        let chatVC = CWChatViewController()
+        chatVC.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(chatVC, animated: true)
     }
     
-    
 }
-
 
 //MARK: UITableViewDataSource
 extension CWConversationsViewController: UITableViewDataSource {
@@ -142,4 +141,10 @@ extension CWConversationsViewController: UITableViewDataSource {
     }
 }
 
+//MARK: 处理消息
+extension CWConversationsViewController {
+    override func receiveNewMessage(message: CWMessageModel) {
+
+    }
+}
 

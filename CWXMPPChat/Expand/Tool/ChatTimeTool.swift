@@ -25,7 +25,10 @@ class ChatTimeTool: NSObject {
     }
     
     internal class func stringFromDate(date: NSDate) -> String {
-        let dateString = shareChatTimeTool.formatter.stringFromDate(date)
+        let formatter = shareChatTimeTool.formatter
+        //格式化时间
+        formatter.dateFormat = KTimeFormate
+        let dateString = formatter.stringFromDate(date)
         return dateString
     }
     

@@ -10,4 +10,18 @@ import UIKit
 
 class CWTextMessageDispatchOperation: CWMessageDispatchOperation {
 
+    override func sendMessage() {
+        
+        guard let chatMessage = self.chatMessage else {
+            return
+        }
+        
+        let toId = chatMessage.messageSendId
+        let messageId = chatMessage.messageID
+        let content = chatMessage.content
+
+        let sendResult = messageTransmitter.sendMessage(content!, toId: toId!, messageId: messageId)
+        messageSendCallback(sendResult)
+    }
+    
 }

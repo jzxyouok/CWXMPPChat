@@ -28,8 +28,8 @@ class CWXMPPManager: NSObject {
     private var xmppReconnect: XMPPReconnect
     
     ///消息发送
-    internal var messageTransmitter: CWMessageTransmitter
-    internal var messageCracker: CWMessageCracker
+    private(set) var messageTransmitter: CWMessageTransmitter
+    private(set) var messageCracker: CWMessageCracker
     var turnSockets = [AnyObject]()
     
     var xmppRoster: XMPPRoster
@@ -105,7 +105,7 @@ class CWXMPPManager: NSObject {
         do {
             try xmppStream.connectWithTimeout(timeoutInterval)
         } catch let error as NSError {
-            print(error)
+            CWLog(error)
         }
     }
     
@@ -120,7 +120,7 @@ class CWXMPPManager: NSObject {
         reachable = NetworkReachabilityManager(host: "http://www.baidu.com")
         reachable?.startListening()
         let listener = { (status: NetworkReachabilityManager.NetworkReachabilityStatus) in
-            print("网络状态:\(status)")
+            CWLog("网络状态:\(status)")
         }
         reachable?.listener = listener
     }
@@ -164,18 +164,17 @@ extension CWXMPPManager: XMPPStreamDelegate {
     
     ///
     func xmppStreamWillConnect(sender: XMPPStream!) {
-        print("xmppStream-xmppStreamWillConnect")
-
+        CWLog("开始连接")
     }
     
     ///连接失败
     func xmppStreamDidDisconnect(sender: XMPPStream!, withError error: NSError!) {
-        
+        CWLog("断开连接")
     }
     
     ///已经连接，就输入密码
     func xmppStreamDidConnect(sender: XMPPStream!) {
-        print("xmppStream-xmppStreamDidConnect")
+        CWLog("连接成功")
         do {
             try xmppStream.authenticateWithPassword(password)
         } catch let error as NSError {
@@ -185,12 +184,12 @@ extension CWXMPPManager: XMPPStreamDelegate {
     
     ///验证失败
     func xmppStream(sender: XMPPStream!, didNotAuthenticate error: DDXMLElement!) {
-        print("xmppStream-didNotAuthenticate")
+        CWLog("认证失败")
     }
     
     ///验证成功
     func xmppStreamDidAuthenticate(sender: XMPPStream!) {
-        print("xmppStream-xmppStreamDidAuthenticate")
+        CWLog("认证成功")
         //上线
         goOnline()
     }
@@ -238,7 +237,7 @@ extension CWXMPPManager: XMPPRosterDelegate {
     
     ///收到好友列表
     func xmppRosterDidEndPopulating(sender: XMPPRoster!) {
-        print("获取好友信息界面")
+        CWLog("获取好友信息界面")
         let story = sender.xmppRosterStorage as! XMPPRosterMemoryStorage
         let userArray = story.sortedUsersByName() as! [XMPPUser]
         
