@@ -8,7 +8,7 @@
 
 import UIKit
 
-let KTimeFormate = "yyyy-MM-dd HH:mm:ss:SSS"
+let KTimeFormate:String = "yyyy-MM-dd HH:mm:ss:SSS"
 
 class ChatTimeTool: NSObject {
 
@@ -26,6 +26,20 @@ class ChatTimeTool: NSObject {
     
     internal class func stringFromDate(date: NSDate) -> String {
         let dateString = shareChatTimeTool.formatter.stringFromDate(date)
+        return dateString
+    }
+    
+    internal class func stringFromDateString(dateString: String, fromDateFormat: String, toDateFormat: String = KTimeFormate) -> String? {
+        let formatter = shareChatTimeTool.formatter
+        //格式化时间
+        formatter.dateFormat = fromDateFormat
+        let date = formatter.dateFromString(dateString)
+        if (date == nil) {
+            return nil
+        }
+        //转换成当前格式的string
+        formatter.dateFormat = toDateFormat
+        let dateString = formatter.stringFromDate(date!)
         return dateString
     }
     

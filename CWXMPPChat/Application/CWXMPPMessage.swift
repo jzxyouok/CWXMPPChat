@@ -9,13 +9,25 @@
 import UIKit
 import XMPPFramework
 
+
+let CWXMPPMessageTextType:String = "chat"
+
+
+/**
+ 中间转换的消息
+ 
+
+ */
 class CWXMPPMessage: NSObject {
     
     var type: String
     var messageId: String
     var from: String
     var to: String
-    var body: String
+    
+    var body: String?
+    var delayDateString: String?
+    var composing: Bool = false
     
     init(message: XMPPMessage) {
         
@@ -24,7 +36,24 @@ class CWXMPPMessage: NSObject {
         self.from = message.attributeForName("from").stringValue()
         self.to = message.attributeForName("to").stringValue()
         self.body = message.body()
+        
+        //对方正在输入
+        if message.elementForName("composing") != nil {
+            self.composing = true
+        }
+        
+        let delayElement = message.elementForName("delay")
+        if (delayElement != nil) {
+            
+            let formatter = "yyyy-MM-dd'T'HH:mm:ss'Z'"
+            let delayTime = delayElement.attributeStringValueForName("stamp")
+            self.delayDateString = ChatTimeTool.stringFromDateString(delayTime, fromDateFormat: formatter)
+        }
+        super.init()
     }
     
+    override var description: String {
+        return "[type:"
+    }
     
 }

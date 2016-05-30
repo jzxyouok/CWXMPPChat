@@ -28,6 +28,14 @@ class CWMessageTransmitter: XMPPModule {
 
     static let shareMessageTransmitter = CWMessageTransmitter()
 
+    override init!(dispatchQueue queue: dispatch_queue_t!) {
+        super.init(dispatchQueue: queue)
+    }
+    
+    override init!() {
+        super.init()
+    }
+    
     func sendMessage(content:String, toId:String, messageId:String,type:Int = 1) {
 
         let messageElement = self.messageElement(content, to: toId, messageId: messageId)

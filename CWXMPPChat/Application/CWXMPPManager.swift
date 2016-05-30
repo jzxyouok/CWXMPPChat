@@ -30,6 +30,7 @@ class CWXMPPManager: NSObject {
     ///消息发送
     internal var messageTransmitter: CWMessageTransmitter
     internal var messageCracker: CWMessageCracker
+    var turnSockets = [AnyObject]()
     
     var xmppRoster: XMPPRoster
     
@@ -194,36 +195,6 @@ extension CWXMPPManager: XMPPStreamDelegate {
         goOnline()
     }
     
-    ///收到消息
-    func xmppStream(sender: XMPPStream!, didReceiveMessage message: XMPPMessage!) {
-        
-        //如果是聊天消息
-        if message.isChatMessage() {
-            
-            //对方正在输入
-            if message.elementForName("composing") != nil {
-                
-            }
-            
-            //对方停止输入
-            if message.elementForName("paused") != nil {
-                
-            }
-            
-            //离线消息
-            if message.elementForName("delay") != nil {
-                
-            }
-            
-            //消息正文
-            if let body = message.body() {
-                
-            }
-            
-        }
-        
-    }
-    
     ///收到状态信息
     func xmppStream(sender: XMPPStream!, didReceivePresence presence: XMPPPresence!) {
         
@@ -253,6 +224,11 @@ extension CWXMPPManager: XMPPStreamDelegate {
             
         }
         
+    }
+    
+    
+    func xmppStream(sender: XMPPStream!, didReceiveIQ iq: XMPPIQ!) -> Bool {
+        return true
     }
     
 }

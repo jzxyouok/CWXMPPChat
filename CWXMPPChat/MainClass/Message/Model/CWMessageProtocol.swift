@@ -68,6 +68,7 @@ public enum CWMessageType : Int {
 
 ///消息发送的状态
 public enum CWMessageSendState : Int {
+    case None               //默认消息状态
     case Sending            //消息发送中
     case Fail              //消息发送失败
     case Success           //消息发送成功
