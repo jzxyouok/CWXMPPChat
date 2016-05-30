@@ -8,8 +8,39 @@
 
 import UIKit
 
-class CWBaseMessageTableViewCell: UITableViewCell {
+let TIMELABEL_SPACE_Y:CGFloat     = 10.0
 
+class CWBaseMessageTableViewCell: UITableViewCell {
+    
+    ///用户名称
+    var usernameLabel:UILabel = {
+        let usernameLabel = UILabel()
+        usernameLabel.backgroundColor = UIColor.clearColor()
+        usernameLabel.font = UIFont.systemFontOfSize(12)
+        return usernameLabel
+    }()
+    
+    ///时间
+    var timeLabel:UILabel = {
+        let timeLabel = UILabel()
+        timeLabel.font = UIFont.systemFontOfSize(12)
+        timeLabel.textColor = UIColor.whiteColor()
+        timeLabel.backgroundColor = UIColor.grayColor()
+        timeLabel.alpha = 0.7
+        timeLabel.layer.cornerRadius = 5
+        timeLabel.clipsToBounds = true
+        return timeLabel
+    }()
+    
+    ///头像
+    lazy var avatarButton:UIButton = {
+        let avatarButton = UIButton(type: .Custom)
+        avatarButton.addTarget(self,
+                               action: #selector(avatarButtonClickDown(_:)),
+                               forControlEvents: UIControlEvents.TouchUpInside)
+        return avatarButton
+    }()
+    
     ///手势操作
     internal private(set) lazy var tapGestureRecognizer: UITapGestureRecognizer = {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(bubbleTapped(_:)))
@@ -22,8 +53,52 @@ class CWBaseMessageTableViewCell: UITableViewCell {
         return longpressGestureRecognizer
     }()
     
+    ///消息的背景图片
+    lazy var messageBackgroundView:UIImageView = {
+        let messageBackgroundView = UIImageView()
+        messageBackgroundView.userInteractionEnabled = true
+        
+        return messageBackgroundView
+    }()
     
+    //引导
+    var activityView = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
+    var errorButton:UIButton = {
+        let errorButton = UIButton(type: .Custom)
+        errorButton.setImage(UIImage(named:"message_sendfaild"), forState: .Normal)
+        errorButton.sizeToFit()
+        errorButton.hidden = true
+        return errorButton
+    }()
     
+    // MARK: 初始化
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.backgroundColor = UIColor.clearColor()
+        self.selectionStyle = .None
+        
+        self.contentView.addSubview(self.usernameLabel)
+        self.contentView.addSubview(self.avatarButton)
+        self.contentView.addSubview(self.messageBackgroundView)
+        self.contentView.addSubview(self.activityView)
+        self.contentView.addSubview(self.timeLabel)
+        self.contentView.addSubview(self.errorButton)
+        
+        timeLabel.snp_makeConstraints { (make) in
+            make.top.equalTo(self.contentView).offset(TIMELABEL_SPACE_Y)
+            make.centerX.equalTo(self.contentView)
+        }
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: cell中的事件处理
+    ///头像点击
+    func avatarButtonClickDown(button:UIButton) {
+        
+    }
     
     ///手势事件
     func bubbleTapped(tapGestureRecognizer: UITapGestureRecognizer) {
