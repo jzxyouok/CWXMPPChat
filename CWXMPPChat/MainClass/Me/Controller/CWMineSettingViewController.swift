@@ -35,15 +35,22 @@ extension CWMineSettingViewController {
         super.tableView(tableView, didSelectRowAtIndexPath: indexPath)
         
         if indexPath.section == 1 {
-            let messageSettingVC = CWNewMessageSettingViewController()
-            self.navigationController?.pushViewController(messageSettingVC, animated: true)
-        }
-        
-        else if indexPath.section == 2 {
-            let privacySettingVC = CWPrivacySettingViewController()
-            self.navigationController?.pushViewController(privacySettingVC, animated: true)
+            
+            if indexPath.row == 0 {
+                let messageSettingVC = CWNewMessageSettingViewController()
+                self.navigationController?.pushViewController(messageSettingVC, animated: true)
+            } else if indexPath.row == 1 {
+                let privacySettingVC = CWPrivacySettingViewController()
+                self.navigationController?.pushViewController(privacySettingVC, animated: true)
+            } else if indexPath.row == 2 {
+                
+                let commonSettingVC = CWCommonSettingViewController()
+                self.navigationController?.pushViewController(commonSettingVC, animated: true)
+            }
+            
             
         }
+
         
     }
 }
