@@ -8,10 +8,26 @@
 
 import UIKit
 
-let TIMELABEL_SPACE_Y:CGFloat     = 10.0
+///头像
+let AVATAR_WIDTH:CGFloat        = 38.0
+let AVATAR_SPACE_X:CGFloat      = 8.0
+let AVATAR_SPACE_Y:CGFloat      = 12.0
+
+let kChatAvatarMarginLeft: CGFloat = 10             //头像的 margin left
+let kChatAvatarMarginTop: CGFloat = 0               //头像的 margin top
+let kChatAvatarWidth: CGFloat = 40                  //头像的宽度
+
+//消息在左边的时候， 文字距离屏幕左边的距离
+let kChatTextLeftPadding: CGFloat = 72
+//消息在左边的时候， 文字距离屏幕左边的距离
+let kChatTextRightPadding: CGFloat = 82
+//消息在右边， 70：文本离屏幕左的距离，  82：文本离屏幕右的距
+let kChatTextMaxWidth: CGFloat = Screen_Width - kChatTextLeftPadding - kChatTextRightPadding
 
 class CWBaseMessageCell: UITableViewCell {
     
+    ///
+    var message:CWMessageProtocol?
     ///用户名称
     var usernameLabel:UILabel = {
         let usernameLabel = UILabel()
@@ -23,6 +39,7 @@ class CWBaseMessageCell: UITableViewCell {
     ///头像
     lazy var avatarButton:UIButton = {
         let avatarButton = UIButton(type: .Custom)
+        avatarButton.frame.size = CGSize(width: AVATAR_WIDTH, height: AVATAR_WIDTH)
         avatarButton.addTarget(self,
                                action: #selector(avatarButtonClickDown(_:)),
                                forControlEvents: UIControlEvents.TouchUpInside)
@@ -74,6 +91,21 @@ class CWBaseMessageCell: UITableViewCell {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    ///赋值
+    func setMessage(message: CWMessageModel) {
+        self.message = message
+        if message.messageOwnerType == .Myself {
+            let string = "http://o7ve5wypa.bkt.clouddn.com/"+"tom@chenweiim.com"
+            self.avatarButton.af_setImageForState(.Normal, URL: NSURL(string:string)!)
+            self.avatarButton.left = Screen_Width - kChatAvatarMarginLeft - AVATAR_WIDTH
+        } else {
+            let string = "http://o7ve5wypa.bkt.clouddn.com/"+"jerry@chenweiim.com"
+            self.avatarButton.af_setImageForState(.Normal, URL: NSURL(string:string)!)
+            self.avatarButton.left = kChatAvatarMarginLeft
+        }
+
     }
     
     // MARK: cell中的事件处理

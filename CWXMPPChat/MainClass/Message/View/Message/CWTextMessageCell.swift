@@ -23,6 +23,15 @@ class CWTextMessageCell: CWBaseMessageCell {
         self.contentView.addSubview(self.messageLabel)
     }
     
+    ///赋值
+    override func setMessage(message: CWMessageModel) {
+        super.setMessage(message)
+        
+        messageLabel.text = message.content
+        
+        
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

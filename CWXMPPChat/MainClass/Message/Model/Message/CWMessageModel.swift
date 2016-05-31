@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class CWMessageModel: NSObject,CWMessageProtocol {
 
     ///消息ID
@@ -29,9 +30,25 @@ class CWMessageModel: NSObject,CWMessageProtocol {
     ///消息状态
     var messageState: CWMessageSendState
     
-    var content: String?
+    var content: String? {
+        didSet {
+            
+            if let content: NSString = content {
+                
+                let size = CGSize(width: kChatTextMaxWidth, height: CGFloat.max)
+                let attributes = [NSForegroundColorAttributeName:UIColor.whiteColor(),
+                                  NSFontAttributeName: UIFont.systemFontOfSize(16)]
+                let contentSize = content.boundingRectWithSize(size, options: .UsesLineFragmentOrigin, attributes: attributes, context: nil).size
+                cellHeight = ceil(contentSize.height)+1
+            }
+            
+        }
+    }
     
-    /// 在主页需要显示
+    //计算的高度储存使用，默认0
+    private(set) var cellHeight: CGFloat = 0
+
+    /// 在会话界面显示
     var conversationContent:String {
         get {
             return "子类定义"

@@ -37,11 +37,27 @@ public enum CWMessageOwnerType : Int {
     case System   //系统消息
     case Myself   //自己发送的
     case Other    //接受到朋友发送的
+    
+    //获取cell的reuseIdentifier
+    func reuseIdentifier(messageType: CWMessageType) -> String {
+        let typeIdentifier = messageType.reuseIdentifier()
+        switch self {
+        case Myself:
+            return typeIdentifier+"_send"
+        case Other:
+            return typeIdentifier+"_receive"
+        default:
+            return typeIdentifier+"_none"
+        }
+    }
+    
 }
 
 ///消息类型
 public enum CWMessageType : Int {
-    case None              //未知
+    case None               //未知
+    case Time               //时间
+    
     case Text               //文字
     case Image              //图片
     case Voice              //声音
@@ -61,6 +77,9 @@ public enum CWMessageType : Int {
             return "ChatMessageVideoCell"
         case .Expression:
             return "ChatMessageExpressionCell"
+            
+        case .Time:
+            return "ChatMessageTimeCell"
         default:
             return "ChatMessageCell"
         }

@@ -14,16 +14,14 @@ class CWChatViewController: CWBaseMessageViewController {
     let queue = CWMessageDispatchQueue()
     var toId: String?
     /// 消息数据数组
-    var messageList = [CWMessageProtocol]()
+    var messageList = [CWMessageModel]()
     
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: self.view.bounds, style: .Plain)
         tableView.backgroundColor = UIColor.whiteColor()
-        tableView.rowHeight = 64.0
         tableView.tableFooterView = UIView()
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         return tableView
     }()
     
@@ -31,6 +29,8 @@ class CWChatViewController: CWBaseMessageViewController {
         super.viewDidLoad()
         self.title = "消息";
         setupUI()
+        
+        registerCell()
     }
     
 
@@ -42,17 +42,41 @@ class CWChatViewController: CWBaseMessageViewController {
         self.navigationItem.rightBarButtonItem = rightBarItem
     }
     
+    func registerCell() {
+        
+        tableView.registerClass(CWBaseMessageCell.self, forCellReuseIdentifier: CWMessageType.None.reuseIdentifier())
+        tableView.registerClass(CWTextMessageCell.self, forCellReuseIdentifier: CWMessageType.Text.reuseIdentifier())
+        tableView.registerClass(CWImageMessageCell.self, forCellReuseIdentifier: CWMessageType.Image.reuseIdentifier())
+        tableView.registerClass(CWTimeMessageCell.self, forCellReuseIdentifier: CWMessageType.Time.reuseIdentifier())
+    }
+    
     func sendMessage() {
         let random = arc4random_uniform(10000)
 
         let message = CWMessageModel()
         message.messageSendId = toId
+        message.messageOwnerType = .Myself
+        message.chatType = .Single
         message.messageType = .Text
         message.content = "\(random)\(String.UUIDString())"
-        
-        queue.sendMessage(message)
+        sendAndShowMessage(message)
     }
     
+    /**
+     发送并显示消息
+     
+     - parameter message: 消息的实体类
+     */
+    func sendAndShowMessage(message: CWMessageModel) {
+        queue.sendMessage(message)
+    
+        insertMessageToList(message)
+    }
+    
+    func insertMessageToList(message: CWMessageModel) {
+        messageList.append(message)
+        tableView.reloadData()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -66,11 +90,26 @@ extension CWChatViewController: UITableViewDataSource {
         return messageList.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as UITableViewCell
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         let message = messageList[indexPath.row]
-        cell.textLabel?.text = message.content
-        return cell
+        return message.cellHeight
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+
+        //configure
+        let message = messageList[indexPath.row]
+        if message.messageType == .Time {
+
+            let cell = tableView.dequeueReusableCellWithIdentifier(message.messageType.reuseIdentifier(), forIndexPath: indexPath) as! CWTimeMessageCell
+            
+            return cell
+
+        } else {
+            let cell = tableView.dequeueReusableCellWithIdentifier(message.messageType.reuseIdentifier(), forIndexPath: indexPath) as! CWBaseMessageCell
+            cell.setMessage(message)
+            return cell
+        }
     }
     
 }

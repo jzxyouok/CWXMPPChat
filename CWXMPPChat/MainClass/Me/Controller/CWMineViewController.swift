@@ -63,5 +63,12 @@ extension CWMineViewController {
         }
         return super.tableView(tableView, cellForRowAtIndexPath: indexPath)
     }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let settingVC = CWMineSettingViewController()
+        settingVC.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(settingVC, animated: true)
+    }
 }
 
