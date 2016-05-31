@@ -41,6 +41,8 @@
 		ED7C4F531CFDA0E600D20B2C /* CWUIUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7C4F521CFDA0E600D20B2C /* CWUIUtility.swift */; };
 		ED7C4F551CFDA6AC00D20B2C /* CWNewMessageSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7C4F541CFDA6AC00D20B2C /* CWNewMessageSettingViewController.swift */; };
 		ED7C4F571CFDA6ED00D20B2C /* CWNewMessageSettingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7C4F561CFDA6ED00D20B2C /* CWNewMessageSettingHelper.swift */; };
+		ED7C4F591CFDE69700D20B2C /* CWPrivacySettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7C4F581CFDE69700D20B2C /* CWPrivacySettingViewController.swift */; };
+		ED7C4F5B1CFDE6C800D20B2C /* CWPrivacySettingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7C4F5A1CFDE6C800D20B2C /* CWPrivacySettingHelper.swift */; };
 		ED93E7951CF91E8B0038D7CF /* CWXMPPProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED93E7941CF91E8B0038D7CF /* CWXMPPProtocol.swift */; };
 		ED93E7A01CF9215B0038D7CF /* CWMessageDispatchOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED93E79E1CF9215B0038D7CF /* CWMessageDispatchOperation.swift */; };
 		ED93E7A11CF9215B0038D7CF /* CWMessageDispatchQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED93E79F1CF9215B0038D7CF /* CWMessageDispatchQueue.swift */; };
@@ -120,6 +122,8 @@
 		ED7C4F521CFDA0E600D20B2C /* CWUIUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWUIUtility.swift; sourceTree = "<group>"; };
 		ED7C4F541CFDA6AC00D20B2C /* CWNewMessageSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWNewMessageSettingViewController.swift; sourceTree = "<group>"; };
 		ED7C4F561CFDA6ED00D20B2C /* CWNewMessageSettingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWNewMessageSettingHelper.swift; sourceTree = "<group>"; };
+		ED7C4F581CFDE69700D20B2C /* CWPrivacySettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWPrivacySettingViewController.swift; sourceTree = "<group>"; };
+		ED7C4F5A1CFDE6C800D20B2C /* CWPrivacySettingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWPrivacySettingHelper.swift; sourceTree = "<group>"; };
 		ED93E7941CF91E8B0038D7CF /* CWXMPPProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWXMPPProtocol.swift; sourceTree = "<group>"; };
 		ED93E79E1CF9215B0038D7CF /* CWMessageDispatchOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWMessageDispatchOperation.swift; sourceTree = "<group>"; };
 		ED93E79F1CF9215B0038D7CF /* CWMessageDispatchQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWMessageDispatchQueue.swift; sourceTree = "<group>"; };
@@ -553,6 +557,7 @@
 				EDF48A971CF9D88000B50DCE /* CWMineViewController.swift */,
 				ED7C4F4E1CFD931E00D20B2C /* CWMineSettingViewController.swift */,
 				ED7C4F541CFDA6AC00D20B2C /* CWNewMessageSettingViewController.swift */,
+				ED7C4F581CFDE69700D20B2C /* CWPrivacySettingViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -563,6 +568,7 @@
 				EDF48AA21CF9F95F00B50DCE /* CWMineHelper.swift */,
 				ED7C4F501CFD934A00D20B2C /* CWMineSettingHelper.swift */,
 				ED7C4F561CFDA6ED00D20B2C /* CWNewMessageSettingHelper.swift */,
+				ED7C4F5A1CFDE6C800D20B2C /* CWPrivacySettingHelper.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -796,6 +802,8 @@
 				EDF48AA71CFA024A00B50DCE /* CWLogger.swift in Sources */,
 				ED93E7A51CF9217D0038D7CF /* CWImageMessageDispatchOperation.swift in Sources */,
 				EDF48A9B1CF9D8D300B50DCE /* CWMenuViewController.swift in Sources */,
+				ED7C4F5B1CFDE6C800D20B2C /* CWPrivacySettingHelper.swift in Sources */,
+				ED7C4F591CFDE69700D20B2C /* CWPrivacySettingViewController.swift in Sources */,
 				ED7C4F0C1CFD0E1800D20B2C /* UIImageView+Extensions.swift in Sources */,
 				ED5BC2D61CF8AB8900E1A827 /* FriendsHelper.swift in Sources */,
 				EDF48AC41CFBBCB500B50DCE /* CWBaseMessageHandle.swift in Sources */,

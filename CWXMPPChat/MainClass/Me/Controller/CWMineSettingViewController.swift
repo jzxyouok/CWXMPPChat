@@ -39,5 +39,11 @@ extension CWMineSettingViewController {
             self.navigationController?.pushViewController(messageSettingVC, animated: true)
         }
         
+        else if indexPath.section == 2 {
+            let privacySettingVC = CWPrivacySettingViewController()
+            self.navigationController?.pushViewController(privacySettingVC, animated: true)
+            
+        }
+        
     }
 }

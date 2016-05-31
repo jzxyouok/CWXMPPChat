@@ -19,9 +19,9 @@ class CWMineSettingHelper: NSObject {
         
         let item2 = CWSettingItem(title: "新消息通知")
         let item3 = CWSettingItem(title: "隐私")
-        let item4 = CWSettingItem(title: "设备")
+//        let item4 = CWSettingItem(title: "设备")
         let item5 = CWSettingItem(title: "通用")
-        let group2 = CWSettingGroup(items: [item2,item3,item4,item5])
+        let group2 = CWSettingGroup(items: [item2,item3,item5])
 
 
         let item6 = CWSettingItem(title: "帮组与反馈")
