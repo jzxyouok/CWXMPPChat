@@ -10,11 +10,15 @@ import UIKit
 
 class CWMineSettingViewController: CWSettingViewController {
 
+    var viewControllerArray = [UIViewController]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "设置"
 
+        viewControllerArray.appendContentsOf(<#T##newElements: CollectionType##CollectionType#>)
+        
         let helper = CWMineSettingHelper()
         self.settingDataSource = helper.mineSettingData
         // Do any additional setup after loading the view.
@@ -48,6 +52,9 @@ extension CWMineSettingViewController {
                 self.navigationController?.pushViewController(commonSettingVC, animated: true)
             }
             
+        }
+        
+        if indexPath.section == 2 {
             
         }
 

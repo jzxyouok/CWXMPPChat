@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		B75E76F645D0FB5E81FE1830 /* Pods_CWXMPPChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B39067CBE9F6B9F84053A7 /* Pods_CWXMPPChat.framework */; };
+		ED28FD231D005A6F000916D3 /* CWHelpAndFeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED28FD221D005A6F000916D3 /* CWHelpAndFeedbackViewController.swift */; };
+		ED28FD251D005B62000916D3 /* CWAccountSafetyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED28FD241D005B62000916D3 /* CWAccountSafetyViewController.swift */; };
+		ED28FD271D005BBE000916D3 /* CWAccountSafetyHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED28FD261D005BBE000916D3 /* CWAccountSafetyHelper.swift */; };
 		ED5BC2B71CF87DD700E1A827 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5BC2AA1CF87DD700E1A827 /* AppDelegate.swift */; };
 		ED5BC2B81CF87DD700E1A827 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED5BC2AB1CF87DD700E1A827 /* Assets.xcassets */; };
 		ED5BC2BA1CF87DD700E1A827 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED5BC2AE1CF87DD700E1A827 /* Main.storyboard */; };
@@ -89,6 +92,9 @@
 /* Begin PBXFileReference section */
 		1A302019F436D9B4A03C7DC5 /* Pods-CWXMPPChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CWXMPPChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CWXMPPChat/Pods-CWXMPPChat.debug.xcconfig"; sourceTree = "<group>"; };
 		E8EDF417EF9BECC0EBD57685 /* Pods-CWXMPPChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CWXMPPChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-CWXMPPChat/Pods-CWXMPPChat.release.xcconfig"; sourceTree = "<group>"; };
+		ED28FD221D005A6F000916D3 /* CWHelpAndFeedbackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWHelpAndFeedbackViewController.swift; sourceTree = "<group>"; };
+		ED28FD241D005B62000916D3 /* CWAccountSafetyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWAccountSafetyViewController.swift; sourceTree = "<group>"; };
+		ED28FD261D005BBE000916D3 /* CWAccountSafetyHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWAccountSafetyHelper.swift; sourceTree = "<group>"; };
 		ED5BC2941CF87D0D00E1A827 /* CWXMPPChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CWXMPPChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED5BC2AA1CF87DD700E1A827 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED5BC2AB1CF87DD700E1A827 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -560,9 +566,11 @@
 			children = (
 				EDF48A971CF9D88000B50DCE /* CWMineViewController.swift */,
 				ED7C4F4E1CFD931E00D20B2C /* CWMineSettingViewController.swift */,
+				ED28FD241D005B62000916D3 /* CWAccountSafetyViewController.swift */,
 				ED7C4F541CFDA6AC00D20B2C /* CWNewMessageSettingViewController.swift */,
 				ED7C4F581CFDE69700D20B2C /* CWPrivacySettingViewController.swift */,
 				ED7C4F5C1CFDEBA900D20B2C /* CWCommonSettingViewController.swift */,
+				ED28FD221D005A6F000916D3 /* CWHelpAndFeedbackViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -572,6 +580,7 @@
 			children = (
 				EDF48AA21CF9F95F00B50DCE /* CWMineHelper.swift */,
 				ED7C4F501CFD934A00D20B2C /* CWMineSettingHelper.swift */,
+				ED28FD261D005BBE000916D3 /* CWAccountSafetyHelper.swift */,
 				ED7C4F561CFDA6ED00D20B2C /* CWNewMessageSettingHelper.swift */,
 				ED7C4F5A1CFDE6C800D20B2C /* CWPrivacySettingHelper.swift */,
 				ED7C4F5E1CFDEBCD00D20B2C /* CWCommonSettingHelper.swift */,
@@ -796,6 +805,7 @@
 				ED7C4F5F1CFDEBCD00D20B2C /* CWCommonSettingHelper.swift in Sources */,
 				EDF48AAA1CFA82A100B50DCE /* CWSearchController.swift in Sources */,
 				ED5BC2C11CF885FD00E1A827 /* CWXMPPManager.swift in Sources */,
+				ED28FD231D005A6F000916D3 /* CWHelpAndFeedbackViewController.swift in Sources */,
 				EDF48A861CF991AE00B50DCE /* CWMessageProtocol.swift in Sources */,
 				ED5BC2C91CF8AAD000E1A827 /* CWChatNavigationController.swift in Sources */,
 				ED7C4F4B1CFD74F000D20B2C /* CWSettingFooterTitleView.swift in Sources */,
@@ -804,6 +814,7 @@
 				EDF48A961CF9D85900B50DCE /* CWDiscoverViewController.swift in Sources */,
 				EDF48AA51CF9FC1C00B50DCE /* CWMineUserCell.swift in Sources */,
 				EDF48AC01CFB4CF300B50DCE /* CWMessageTransmitter.swift in Sources */,
+				ED28FD271D005BBE000916D3 /* CWAccountSafetyHelper.swift in Sources */,
 				ED7C4F3C1CFD5F6400D20B2C /* CWSettingItem.swift in Sources */,
 				EDF48AB41CFACADC00B50DCE /* CWWebViewController.swift in Sources */,
 				EDF48AA71CFA024A00B50DCE /* CWLogger.swift in Sources */,
@@ -837,6 +848,7 @@
 				ED5BC2DB1CF8AE4A00E1A827 /* CWConversationsViewController.swift in Sources */,
 				ED5CDD9F1CFC8C6C000ECD8F /* NSObject+Extension.swift in Sources */,
 				ED7C4F4D1CFD797900D20B2C /* CWSettingProtocol.swift in Sources */,
+				ED28FD251D005B62000916D3 /* CWAccountSafetyViewController.swift in Sources */,
 				EDF48AB61CFAD63300B50DCE /* CWGameViewController.swift in Sources */,
 				ED5BC2C51CF899D600E1A827 /* CWChatConst.swift in Sources */,
 				ED7C4F5D1CFDEBA900D20B2C /* CWCommonSettingViewController.swift in Sources */,
